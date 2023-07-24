@@ -12,25 +12,32 @@ const computeNextBreathStage = (index : number) => {
 export const BreathAnimation = () => {
     const [breathStageIndex, setBreathStageIndex] = useState<number>(0);
 
+    const inspireAnimation = {
+        initial: {top: '-10%'},
+        animate: {top: '50%',
+                    transition: {
+                        duration: 5,
+                    }},
+    }
+
+    const expireAnimation = {
+        initial: {top: '50%'},
+        animate: {top: '110%',
+                    transition: {
+                        duration: 5,
+                    }},
+    }
+
     setTimeout(() => {
         setBreathStageIndex(computeNextBreathStage(breathStageIndex));
     }, STAGE_DURATION);
 
-    return breathStageIndex === 0 ? (
+    return (
         <motion.div className='breath-animation-text'
             key={breathStageIndex}
-            initial={{top: '-10%'}}
-            animate={{top: '50%'}}
-            transition={{duration:5}}
-        >
-            <h1>{breathStages[breathStageIndex]}</h1>
-        </motion.div>
-    ) : (
-        <motion.div className='breath-animation-text'
-            key={breathStageIndex}
-            initial={{top: '50%'}}
-            animate={{top: '110%'}}
-            transition={{duration:5}}
+            initial= 'initial'
+            animate= 'animate'
+            variants= { breathStageIndex === 0 ? inspireAnimation : expireAnimation}
         >
             <h1>{breathStages[breathStageIndex]}</h1>
         </motion.div>
