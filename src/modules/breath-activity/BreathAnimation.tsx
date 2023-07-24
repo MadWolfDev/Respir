@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
+import './BreathAnimation.css';
 
-const breathStages = ['Inspire', 'Maintiens', 'Expire', 'Bloque'] as const
-type BreathStageType = typeof breathStages[number];
+const breathStages = ['Inspire', 'Maintiens', 'Expire', 'Bloque'] as const;
 const STAGE_DURATION : number = 5000; 
 
 const computeNextBreathStage = (index : number) => {
@@ -16,7 +16,7 @@ export const BreathAnimation = () => {
     }, STAGE_DURATION);
 
     return (
-        <h1>{breathStages[breathStageIndex]}</h1>
+        <h1 className='breath-animation-text'>{breathStages[breathStageIndex]}</h1>
     )
 }
 
