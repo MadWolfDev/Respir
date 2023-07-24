@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import { motion } from "framer-motion";
 import './BreathAnimation.css';
 
-const breathStages = ['Inspire', 'Maintiens', 'Expire', 'Bloque'] as const;
+const breathStages = ['Inspire', 'Expire'] as const;
 const STAGE_DURATION : number = 5000; 
 
 const computeNextBreathStage = (index : number) => {
@@ -15,8 +16,24 @@ export const BreathAnimation = () => {
         setBreathStageIndex(computeNextBreathStage(breathStageIndex));
     }, STAGE_DURATION);
 
-    return (
-        <h1 className='breath-animation-text'>{breathStages[breathStageIndex]}</h1>
-    )
-}
+    return breathStageIndex === 0 ? (
+        <motion.div className='breath-animation-text'
+            key={breathStageIndex}
+            initial={{top: '-10%'}}
+            animate={{top: '50%'}}
+            transition={{duration:5}}
+        >
+            <h1>{breathStages[breathStageIndex]}</h1>
+        </motion.div>
+    ) : (
+        <motion.div className='breath-animation-text'
+            key={breathStageIndex}
+            initial={{top: '50%'}}
+            animate={{top: '110%'}}
+            transition={{duration:5}}
+        >
+            <h1>{breathStages[breathStageIndex]}</h1>
+        </motion.div>
+    );
+};
 
