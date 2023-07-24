@@ -12,27 +12,27 @@ describe('BreathAnimation', () => {
     });
 
     it('should display inspire at the start', () => {
-        const component = render(<BreathAnimation />);
-        const breathStage = component.getByText('Inspire');
+        render(<BreathAnimation />);
+        const breathStage = screen.getByText('Inspire');
         expect(breathStage).toBeInTheDocument();
     });
 
     it('should display proper breath stages every 5 seconds', () => {
-        const component = render(<BreathAnimation />);
+       render(<BreathAnimation />);
         act(() => jest.advanceTimersByTime(5000))
-        let breathStage = component.getByText('Maintiens');
+        let breathStage = screen.getByText('Maintiens');
         expect(breathStage).toBeInTheDocument(); 
 
         act(() => jest.advanceTimersByTime(5000))
-        breathStage = component.getByText('Expire');
+        breathStage = screen.getByText('Expire');
         expect(breathStage).toBeInTheDocument(); 
 
         act(() => jest.advanceTimersByTime(5000))
-        breathStage = component.getByText('Bloque');
+        breathStage = screen.getByText('Bloque');
         expect(breathStage).toBeInTheDocument();
 
         act(() => jest.advanceTimersByTime(5000))
-        breathStage = component.getByText('Inspire');
+        breathStage = screen.getByText('Inspire');
         expect(breathStage).toBeInTheDocument();
     })   
 });
