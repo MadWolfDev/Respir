@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from "framer-motion";
-import './BreathAnimation.css';
+import styled from '@emotion/styled';
 
 const breathStages = ['Inspire', 'Expire'] as const;
 const STAGE_DURATION : number = 5000; 
@@ -33,7 +33,7 @@ export const BreathAnimation = () => {
     }, STAGE_DURATION);
 
     return (
-        <div className='breath-animation-text'>
+        <BreathAnimDiv>
             <motion.div
                 key={breathStageIndex}
                 initial= 'initial'
@@ -42,7 +42,13 @@ export const BreathAnimation = () => {
             >
                 <h1>{breathStages[breathStageIndex]}</h1>
             </motion.div>
-        </div>
+        </BreathAnimDiv>
     );
 };
 
+const BreathAnimDiv = styled.div`
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+`
