@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { motion } from "framer-motion";
 import styled from '@emotion/styled';
 
-const breathStages = ['Inspire', 'Expire'] as const;
+
+const breathStages = ['inspirez', 'expirez'] as const;
 const STAGE_DURATION : number = 5000; 
 
 const computeNextBreathStage = (index : number) => {
