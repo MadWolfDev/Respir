@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { motion } from "framer-motion";
-import './BreathAnimation.css';
+import styled from '@emotion/styled';
 
-const breathStages = ['Inspire', 'Expire'] as const;
+
+const breathStages = ['inspirez', 'expirez'] as const;
 const STAGE_DURATION : number = 5000; 
 
 const computeNextBreathStage = (index : number) => {
@@ -12,19 +13,19 @@ const computeNextBreathStage = (index : number) => {
 export const BreathAnimation = () => {
     const [breathStageIndex, setBreathStageIndex] = useState<number>(0);
 
-    const inspireAnimation = {
+    const breathInAnimation = {
         initial: {y: '50vh'},
         animate: {y: '-50vh',
                     transition: {
-                        duration: 5,
+                        duration: STAGE_DURATION /1000,
                     }},
     }
 
-    const expireAnimation = {
+    const breathOutAnimation = {
         initial: {y: '-50vh'},
         animate: {y: '50vh',
                     transition: {
-                        duration: 5,
+                        duration: STAGE_DURATION /1000,
                     }},
     }
 
@@ -33,17 +34,22 @@ export const BreathAnimation = () => {
     }, STAGE_DURATION);
 
     return (
-        <div className='breath-animation-text'>
-
-        <motion.div
-            key={breathStageIndex}
-            initial= 'initial'
-            animate= 'animate'
-            variants= { breathStageIndex === 0 ? inspireAnimation : expireAnimation}
+        <BreathAnimDiv>
+            <motion.div
+                key={breathStageIndex}
+                initial= 'initial'
+                animate= 'animate'
+                variants= { breathStageIndex === 0 ? breathInAnimation : breathOutAnimation}
             >
-            <h1>{breathStages[breathStageIndex]}</h1>
-        </motion.div>
-            </div>
+                <h1>{breathStages[breathStageIndex]}</h1>
+            </motion.div>
+        </BreathAnimDiv>
     );
 };
 
+const BreathAnimDiv = styled.div`
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+`
