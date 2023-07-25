@@ -16,7 +16,7 @@ export const BreathAnimation = () => {
         initial: {y: '50vh'},
         animate: {y: '-50vh',
                     transition: {
-                        duration: 5,
+                        duration: STAGE_DURATION /1000,
                     }},
     }
 
@@ -24,7 +24,7 @@ export const BreathAnimation = () => {
         initial: {y: '-50vh'},
         animate: {y: '50vh',
                     transition: {
-                        duration: 5,
+                        duration: STAGE_DURATION /1000,
                     }},
     }
 
