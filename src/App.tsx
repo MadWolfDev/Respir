@@ -11,17 +11,22 @@ export const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <AppDiv>
-        <BreathAnimation />
-      </AppDiv>
+      <AppContent>
+        <Footer>
+        </Footer>
+      </AppContent>
     </ThemeProvider>
   );
 }
 
-const AppDiv = styled.div`
+const AppContent = styled.div`
   background: linear-gradient(180deg, #FF8E8E 0%, #FFF7DC 100%);
-  text-align: center;
+`
+
+const Footer = styled.div`
   display: flex;
-  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  height: 10vh;
 `
 
