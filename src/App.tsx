@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { theme } from './theme/Theme';
 import { ThemeProvider } from "@mui/material/styles";
-import { CssBaseline } from '@mui/material';
+import { Button, CssBaseline } from '@mui/material';
 import styled from '@emotion/styled';
 import { BreathAnimationManager } from './modules/breath-activity/BreathAnimationManager';
 
@@ -15,6 +15,12 @@ export const App = () => {
       <AppContent>
         <BreathAnimationManager showAnim={showAnim} />
         <Footer>
+          <Button 
+            variant="contained"
+            onClick={() => { setShowAnim(!showAnim) }}
+          >
+            On/Off
+          </Button>
         </Footer>
       </AppContent>
     </ThemeProvider>
