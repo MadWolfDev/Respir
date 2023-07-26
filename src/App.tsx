@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { BreathAnimation } from './modules/breath-activity/BreathAnimation';
+
 import { theme } from './theme/Theme';
 import { ThemeProvider } from "@mui/material/styles";
 import { CssBaseline } from '@mui/material';
 import styled from '@emotion/styled';
+import { BreathAnimationManager } from './modules/breath-activity/BreathAnimationManager';
 
 export const App = () => {
   const [showAnim, setShowAnim] = useState<boolean>(false);
@@ -12,6 +13,7 @@ export const App = () => {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <AppContent>
+        <BreathAnimationManager showAnim={showAnim} />
         <Footer>
         </Footer>
       </AppContent>
