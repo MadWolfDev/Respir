@@ -14,16 +14,16 @@ export const BreathAnimation = () => {
     const [breathStageIndex, setBreathStageIndex] = useState<number>(0);
 
     const breathInAnimation = {
-        initial: {y: '50vh'},
-        animate: {y: '-50vh',
+        initial: {y: '45vh'},
+        animate: {y: '-40vh',
                     transition: {
                         duration: STAGE_DURATION /1000,
                     }},
     }
 
     const breathOutAnimation = {
-        initial: {y: '-50vh'},
-        animate: {y: '50vh',
+        initial: {y: '-40vh'},
+        animate: {y: '45vh',
                     transition: {
                         duration: STAGE_DURATION /1000,
                     }},
