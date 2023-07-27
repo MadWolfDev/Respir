@@ -17,5 +17,5 @@ export const BreathAnimationManager = ({showAnim}:{showAnim:boolean;}) => {
 const AnimContent = styled.div`
   text-align: center;
   display: flex;
-  height: 90vh;
+  flex: 1;
 `;

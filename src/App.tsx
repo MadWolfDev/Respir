@@ -29,6 +29,10 @@ export const App = () => {
 
 const AppContent = styled.div`
   background: linear-gradient(180deg, #FF8E8E 0%, #FFF7DC 100%);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
 `
 
 const Footer = styled.div`
