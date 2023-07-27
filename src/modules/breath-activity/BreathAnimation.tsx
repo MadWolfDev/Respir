@@ -41,7 +41,7 @@ export const BreathAnimation = () => {
                 animate= 'animate'
                 variants= { breathStageIndex === 0 ? breathInAnimation : breathOutAnimation}
             >
-                <h1>{breathStages[breathStageIndex]}</h1>
+                <BreathAnimText>{breathStages[breathStageIndex]}</BreathAnimText>
             </motion.div>
         </BreathAnimDiv>
     );
@@ -52,4 +52,8 @@ const BreathAnimDiv = styled.div`
     flex-grow: 1;
     align-items: center;
     justify-content: center;
+`
+const BreathAnimText = styled.h1`
+    font-weight: 700;
+    color: #FFEFF2;
 `
