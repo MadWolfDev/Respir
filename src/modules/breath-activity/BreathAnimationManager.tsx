@@ -7,11 +7,7 @@ export const BreathAnimationManager = ({showAnim}:{showAnim:boolean;}) => {
         <AnimContent>
             <BreathAnimation /> 
         </AnimContent>
-    ) : (
-        <AnimContent>
-
-        </AnimContent>
-    );
+    ) : null;
 };
 
 const AnimContent = styled.div`
