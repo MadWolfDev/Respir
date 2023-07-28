@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { BreathAnimation } from "./BreathAnimation";
 
-export const BreathAnimationManager = ({showAnim}:{showAnim:boolean;}) => {
+export const BreathAnimationScreen = ({showAnim}:{showAnim:boolean;}) => {
 
     return showAnim ? (
         <AnimContent>
