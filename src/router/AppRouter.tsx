@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import { Root } from "../modules/root";
-import { WelcomeScreen } from "../modules/breath-activity/WelcomeScreen";
+import { WelcomeScreen } from "../modules/user-settings/WelcomeScreen";
 import { RoutePath } from "./RoutePath.type";
 import { BreathAnimationScreen } from "../modules/breath-activity/BreathAnimationScreen";
 
