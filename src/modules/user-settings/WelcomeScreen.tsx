@@ -8,6 +8,8 @@ export const WelcomeScreen = () => {
     const location = useLocation();
     
     return(
+        <ScreenContainer>
+            <ButtonsContainer>
                 <ModesButton 
                     variant='contained'
                     onClick={() => { 
@@ -24,12 +26,22 @@ export const WelcomeScreen = () => {
         >
                     Start
         </StartButton>
+            </ButtonsContainer>
+        </ScreenContainer>
     );
 };
 
+const ScreenContainer = styled.div`
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: end;
+`
 
-const StartButton = styled(Button)`
-align-self : center
+const ButtonsContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
 `;
 
 const ModesButton = styled(Button)`
