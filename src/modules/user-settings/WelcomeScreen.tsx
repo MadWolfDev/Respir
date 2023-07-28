@@ -9,6 +9,7 @@ export const WelcomeScreen = () => {
     
     return(
         <ScreenContainer>
+            <Outlet />
             <ButtonsContainer>
                 <ModesButton 
                     variant='contained'
@@ -20,12 +21,12 @@ export const WelcomeScreen = () => {
                 >
                     Cohérence cardiaque
                 </ModesButton>
-        <StartButton 
-            variant='contained'
+                <StartButton 
+                    variant='contained'
                     onClick={() => { navigate(RoutePath.breathAnimationScreen); }}
-        >
+                >
                     Start
-        </StartButton>
+                </StartButton>
             </ButtonsContainer>
         </ScreenContainer>
     );
