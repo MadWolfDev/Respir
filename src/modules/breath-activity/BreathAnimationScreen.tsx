@@ -8,18 +8,26 @@ export const BreathAnimationScreen = ({showAnim}:{showAnim:boolean;}) => {
     const navigate = useNavigate();
 
     return showAnim ? (
-        <AnimContent>
-            <BreathAnimation /> 
-        </AnimContent>
+        <ScreenContainer>
+            <AnimContent>
+                <BreathAnimation /> 
+            </AnimContent>
             <ReturnButton 
                 variant='contained'
                 onClick={() => { navigate(RoutePath.welcomeScreen); }}
             >
                 Retour
             </ReturnButton>
+        </ScreenContainer>
     ) : null;
 };
 
+const ScreenContainer = styled.div`
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: end;
+` 
 const AnimContent = styled.div`
   text-align: center;
   display: flex;
