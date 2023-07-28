@@ -20,9 +20,9 @@ export const WelcomeScreen = () => {
                 </ModesButton>
         <StartButton 
             variant='contained'
-            onClick={() => { navigate(RoutePath.breathAnimationScreen);}}
+                    onClick={() => { navigate(RoutePath.breathAnimationScreen); }}
         >
-            Start/Stop
+                    Start
         </StartButton>
     );
 };
@@ -31,8 +31,16 @@ export const WelcomeScreen = () => {
 const StartButton = styled(Button)`
 align-self : center
 `;
+
 const ModesButton = styled(Button)`
     margin-bottom: 1em;
     align-self: center;
     width: 15em;
 `
+
+const StartButton = styled(ModesButton)`
+    margin-bottom: 1.5em;
+    width: 10em;
+
+`
+
