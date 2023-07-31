@@ -3,17 +3,17 @@ import styled from "@emotion/styled";
 
 export const DefaultBreathModesScreen = () => {
     return (
-        <ButtonsContainer>
+        <ButtonContainer>
             <FirstModeButton variant="contained">Cohérence cardiaque</FirstModeButton>
             <ModeButton variant="contained">Respiration vitalité</ModeButton>
             <ModeButton variant="contained">Respiration détente</ModeButton>
             <ModeButton variant="contained">Respiration carrée</ModeButton>
             <ModeButton variant="contained">Personnalisé</ModeButton>
-        </ButtonsContainer>
+        </ButtonContainer>
     );
 };
 
-const ButtonsContainer = styled.div`
+const ButtonContainer = styled.div`
     display: flex;
     flex-direction: column-reverse;
     align-items: space-between;
