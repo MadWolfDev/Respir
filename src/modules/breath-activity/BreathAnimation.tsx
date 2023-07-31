@@ -38,7 +38,7 @@ export const BreathAnimation = () => {
   }, STAGE_DURATION);
 
   return (
-    <BreathAnimDiv>
+    <BreathAnimDiv data-testid="breath-anim">
       <motion.div
         key={breathStageIndex}
         initial="initial"
