@@ -7,6 +7,11 @@ import { Screen } from "../../theme/components/Screen";
 export const WelcomeScreen = () => {
     const navigate = useNavigate();
     const location = useLocation();
+    const clickModes = () => !location.pathname.includes(RoutePath.defaultBreathModesScreen) ?
+        navigate(RoutePath.defaultBreathModesScreen) :
+        navigate(RoutePath.welcomeScreen);
+    const clickStart = () => navigate(RoutePath.breathAnimationScreen);
+        
     
     return(
         <Screen>
@@ -14,17 +19,13 @@ export const WelcomeScreen = () => {
             <ButtonContainer>
                 <ModesButton 
                     variant='contained'
-                    onClick={() => { 
-                        !location.pathname.includes(RoutePath.defaultBreathModesScreen) ?
-                            navigate(RoutePath.defaultBreathModesScreen) :
-                            navigate(RoutePath.welcomeScreen);
-                    }}
+                    onClick= { clickModes }
                 >
                     Cohérence cardiaque
                 </ModesButton>
                 <StartButton 
                     variant='contained'
-                    onClick={() => { navigate(RoutePath.breathAnimationScreen); }}
+                    onClick={ clickStart }
                 >
                     Start
                 </StartButton>
