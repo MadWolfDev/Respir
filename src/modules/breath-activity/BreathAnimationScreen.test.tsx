@@ -9,6 +9,10 @@ jest.mock('react-router-dom', () => ({
   useNavigate: () => mockedUsedNavigate,
 }));
 
+beforeEach(() => {
+  jest.resetAllMocks();
+});
+
 describe('BreathAnimationScreen', () => {
   it('should display BreathAnimation component at the start', () => {
     render(
@@ -33,6 +37,5 @@ describe('BreathAnimationScreen', () => {
 
     fireEvent.click(screen.getByText('Retour'));
     expect(mockedUsedNavigate).toHaveBeenCalledWith(RoutePath.welcomeScreen);
-    mockedUsedNavigate.mockRestore();
   });
 });
