@@ -3,12 +3,13 @@ import { BreathAnimation } from "./BreathAnimation";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { RoutePath } from "../../router/RoutePath.type";
+import { Screen } from "../../theme/components/Screen";
 
 export const BreathAnimationScreen = ({showAnim}:{showAnim:boolean;}) => {
     const navigate = useNavigate();
 
     return showAnim ? (
-        <ScreenContainer>
+        <Screen>    
             <AnimContent>
                 <BreathAnimation /> 
             </AnimContent>
@@ -18,16 +19,10 @@ export const BreathAnimationScreen = ({showAnim}:{showAnim:boolean;}) => {
             >
                 Retour
             </ReturnButton>
-        </ScreenContainer>
+        </Screen>
     ) : null;
 };
 
-const ScreenContainer = styled.div`
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    justify-content: end;
-` 
 const AnimContent = styled.div`
   text-align: center;
   display: flex;

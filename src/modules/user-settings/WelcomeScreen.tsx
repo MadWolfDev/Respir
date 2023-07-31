@@ -2,15 +2,16 @@ import styled from "@emotion/styled";
 import { Button } from "@mui/material";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { RoutePath } from "../../router/RoutePath.type";
+import { Screen } from "../../theme/components/Screen";
 
 export const WelcomeScreen = () => {
     const navigate = useNavigate();
     const location = useLocation();
     
     return(
-        <ScreenContainer>
+        <Screen>
             <Outlet />
-            <ButtonsContainer>
+            <ButtonContainer>
                 <ModesButton 
                     variant='contained'
                     onClick={() => { 
@@ -27,19 +28,12 @@ export const WelcomeScreen = () => {
                 >
                     Start
                 </StartButton>
-            </ButtonsContainer>
-        </ScreenContainer>
+            </ButtonContainer>
+        </Screen>
     );
 };
 
-const ScreenContainer = styled.div`
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    justify-content: end;
-`
-
-const ButtonsContainer = styled.div`
+const ButtonContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: space-between;
