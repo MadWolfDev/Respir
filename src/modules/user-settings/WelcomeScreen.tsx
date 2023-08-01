@@ -17,10 +17,18 @@ export const WelcomeScreen = () => {
     <Screen>
       <Outlet />
       <ButtonContainer>
-        <ModesButton variant="contained" onClick={clickModes}>
+        <ModesButton
+          variant="contained"
+          onClick={clickModes}
+          data-testid="modes-button"
+        >
           Cohérence cardiaque
         </ModesButton>
-        <StartButton variant="contained" onClick={clickStart}>
+        <StartButton
+          variant="contained"
+          onClick={clickStart}
+          data-testid="start-button"
+        >
           Start
         </StartButton>
       </ButtonContainer>
