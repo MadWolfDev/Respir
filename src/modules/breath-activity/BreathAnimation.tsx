@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from "framer-motion";
 import styled from '@emotion/styled';
+import { Typography } from '@mui/material';
 
 
 const breathStages = ['inspirez', 'expirez'] as const;
@@ -14,16 +15,16 @@ export const BreathAnimation = () => {
     const [breathStageIndex, setBreathStageIndex] = useState<number>(0);
 
     const breathInAnimation = {
-        initial: {y: '50vh'},
-        animate: {y: '-50vh',
+        initial: {y: '45vh'},
+        animate: {y: '-40vh',
                     transition: {
                         duration: STAGE_DURATION /1000,
                     }},
     }
 
     const breathOutAnimation = {
-        initial: {y: '-50vh'},
-        animate: {y: '50vh',
+        initial: {y: '-40vh'},
+        animate: {y: '45vh',
                     transition: {
                         duration: STAGE_DURATION /1000,
                     }},
@@ -41,7 +42,7 @@ export const BreathAnimation = () => {
                 animate= 'animate'
                 variants= { breathStageIndex === 0 ? breathInAnimation : breathOutAnimation}
             >
-                <BreathAnimText>{breathStages[breathStageIndex]}</BreathAnimText>
+                <Typography variant='h1'>{breathStages[breathStageIndex]}</Typography>
             </motion.div>
         </BreathAnimDiv>
     );
@@ -52,8 +53,4 @@ const BreathAnimDiv = styled.div`
     flex-grow: 1;
     align-items: center;
     justify-content: center;
-`
-const BreathAnimText = styled.h1`
-    font-weight: 700;
-    color: #FFEFF2;
 `
