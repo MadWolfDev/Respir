@@ -1,7 +1,6 @@
 export enum RoutePath {
-    root = '/',
-    welcomeScreen = '/menu',
-    breathAnimationScreen = '/exercice',
-    defaultBreathModesScreen = 'breathModes'
-  }
-  
+  root = '/',
+  welcomeScreen = '/menu',
+  breathAnimationScreen = '/exercice',
+  defaultBreathModesScreen = 'breathModes',
+}
