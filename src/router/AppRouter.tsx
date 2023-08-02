@@ -22,7 +22,7 @@ export const AppRouter = createBrowserRouter([
       },
       {
         path: RoutePath.breathAnimationScreen,
-        element: <BreathAnimationScreen showAnim={true} />,
+        element: <BreathAnimationScreen />,
       },
     ],
   },

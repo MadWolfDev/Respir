@@ -5,11 +5,11 @@ import { useNavigate } from 'react-router-dom';
 import { RoutePath } from '../../router/RoutePath.type';
 import { Screen } from '../../theme/components/Screen';
 
-export const BreathAnimationScreen = ({ showAnim }: { showAnim: boolean }) => {
+export const BreathAnimationScreen = () => {
   const navigate = useNavigate();
   const click = () => navigate(RoutePath.welcomeScreen);
 
-  return showAnim ? (
+  return (
     <Screen>
       <AnimContent>
         <BreathAnimation />
@@ -18,7 +18,7 @@ export const BreathAnimationScreen = ({ showAnim }: { showAnim: boolean }) => {
         Retour
       </ReturnButton>
     </Screen>
-  ) : null;
+  );
 };
 
 const AnimContent = styled.div`
