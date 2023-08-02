@@ -4,16 +4,23 @@ import { Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { RoutePath } from '../../router/RoutePath.type';
 import { Screen } from '../../theme/components/Screen';
+import { useBreathModeStore } from '../../store/breathModeStore';
+import { BreathModes } from '../../store/BreathModes.type';
 
 export const BreathAnimationScreen = () => {
   const navigate = useNavigate();
   const click = () => navigate(RoutePath.welcomeScreen);
+  const breathModeSelected = useBreathModeStore(
+    (state) => state.breathModeSelected
+  );
 
   return (
     <Screen>
-      <AnimContent>
-        <BreathAnimation />
-      </AnimContent>
+      {breathModeSelected === BreathModes.heartCoherence && (
+        <AnimContent>
+          <BreathAnimation />
+        </AnimContent>
+      )}
       <ReturnButton variant="contained" onClick={click}>
         Retour
       </ReturnButton>

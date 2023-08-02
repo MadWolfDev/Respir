@@ -3,6 +3,7 @@ import { Button } from '@mui/material';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { RoutePath } from '../../router/RoutePath.type';
 import { Screen } from '../../theme/components/Screen';
+import { useBreathModeStore } from '../../store/breathModeStore';
 
 export const WelcomeScreen = () => {
   const navigate = useNavigate();
@@ -12,6 +13,9 @@ export const WelcomeScreen = () => {
       ? navigate(RoutePath.defaultBreathModesScreen)
       : navigate(RoutePath.welcomeScreen);
   const clickStart = () => navigate(RoutePath.breathAnimationScreen);
+  const breathModeSelected = useBreathModeStore(
+    (state) => state.breathModeSelected
+  );
 
   return (
     <Screen>
@@ -22,7 +26,7 @@ export const WelcomeScreen = () => {
           onClick={clickModes}
           data-testid="modes-button"
         >
-          Cohérence cardiaque
+          {breathModeSelected}
         </ModesButton>
         <StartButton
           variant="contained"
