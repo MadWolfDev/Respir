@@ -7,10 +7,10 @@ import { RoutePath } from '../../router/RoutePath.type';
 
 export const DefaultBreathModesScreen = () => {
   const updateBreathModeSelection = useBreathModeStore(
-    (state) => state.updateSelection
+    (state) => state.updateDefaultBreathMode
   );
   const navigate = useNavigate();
-  const changeBreathMode = (newBreathMode: BreathModes) => {
+  const changeDefaultBreathMode = (newBreathMode: BreathModes) => {
     updateBreathModeSelection(newBreathMode);
     navigate(RoutePath.welcomeScreen);
   };
@@ -19,33 +19,33 @@ export const DefaultBreathModesScreen = () => {
     <ButtonContainer>
       <FirstModeButton
         variant="contained"
-        onClick={() => changeBreathMode(BreathModes.heartCoherence)}
+        onClick={() => changeDefaultBreathMode(BreathModes.heartCoherence)}
       >
         {BreathModes.heartCoherence}
       </FirstModeButton>
       <ModeButton
         variant="contained"
-        onClick={() => changeBreathMode(BreathModes.vitality)}
+        onClick={() => changeDefaultBreathMode(BreathModes.vitality)}
       >
         {BreathModes.vitality}
       </ModeButton>
       <ModeButton
         variant="contained"
-        onClick={() => changeBreathMode(BreathModes.relaxation)}
+        onClick={() => changeDefaultBreathMode(BreathModes.relaxation)}
       >
         {BreathModes.relaxation}
       </ModeButton>
       <ModeButton
         variant="contained"
-        onClick={() => changeBreathMode(BreathModes.square)}
+        onClick={() => changeDefaultBreathMode(BreathModes.square)}
       >
         {BreathModes.square}
       </ModeButton>
       <ModeButton
         variant="contained"
-        onClick={() => changeBreathMode(BreathModes.personalized)}
+        onClick={() => changeDefaultBreathMode(BreathModes.custom)}
       >
-        {BreathModes.personalized}
+        {BreathModes.custom}
       </ModeButton>
     </ButtonContainer>
   );

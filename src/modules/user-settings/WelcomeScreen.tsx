@@ -26,7 +26,7 @@ export const WelcomeScreen = () => {
           onClick={clickModes}
           data-testid="modes-button"
         >
-          {breathModeSelected}
+          {breathModeSelected.breathMode}
         </ModesButton>
         <StartButton
           variant="contained"
