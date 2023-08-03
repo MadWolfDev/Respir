@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { BreathAnimation } from './BreathAnimation';
+import { BreathAnimationManager } from './BreathAnimationManager';
 import { Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { RoutePath } from '../../router/RoutePath.type';
@@ -12,7 +12,7 @@ export const BreathAnimationScreen = () => {
   return (
     <Screen>
       <AnimContent>
-        <BreathAnimation />
+        <BreathAnimationManager />
       </AnimContent>
       <ReturnButton variant="contained" onClick={click}>
         Retour

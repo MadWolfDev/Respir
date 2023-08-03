@@ -1,5 +1,5 @@
 import { act, render, screen } from '@testing-library/react';
-import { BreathAnimation } from './BreathAnimation';
+import { BreathAnimationManager } from './BreathAnimationManager';
 
 describe('BreathAnimation', () => {
   beforeEach(() => {
@@ -12,13 +12,13 @@ describe('BreathAnimation', () => {
   });
 
   it('should display Inspirez at the start', () => {
-    render(<BreathAnimation />);
+    render(<BreathAnimationManager />);
     const breathStage = screen.getByText('Inspirez');
     expect(breathStage).toBeInTheDocument();
   });
 
   it('should display proper breath stages every 5 seconds', () => {
-    render(<BreathAnimation />);
+    render(<BreathAnimationManager />);
     act(() => jest.advanceTimersByTime(5000));
     let breathStage = screen.getByText('Expirez');
     expect(breathStage).toBeInTheDocument();
