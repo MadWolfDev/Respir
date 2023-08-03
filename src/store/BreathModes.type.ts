@@ -3,5 +3,5 @@ export enum BreathModes {
   vitality = 'Respiration vitalité',
   relaxation = 'Respiration détente',
   square = 'Respiration carrée',
-  personalized = 'Personnalisé',
+  custom = 'Personnalisé',
 }
