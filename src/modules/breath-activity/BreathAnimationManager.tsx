@@ -38,7 +38,7 @@ export const BreathAnimationManager = () => {
     setBreathStageIndex(
       computeNextBreathStage(breathStageIndex, breathStages.length)
     );
-  }, breathStages[breathStageIndex].duration * 1000);
+  }, breathStages[breathStageIndex].duration * 950);
 
   return (
     <BreathAnimDiv data-testid="breath-anim">
