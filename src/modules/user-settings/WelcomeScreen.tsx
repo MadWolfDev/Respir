@@ -11,6 +11,7 @@ import { AnimatePresence } from 'framer-motion';
 export const WelcomeScreen = () => {
   const navigate = useNavigate();
   const [showBreathModes, setShowBreathModes] = useState<boolean>(false);
+  const handleClickStartAnim = () => navigate(RoutePath.breathAnimationScreen);
   const handleClickBreathModes = () => {
     setShowBreathModes(!showBreathModes);
   };
@@ -36,7 +37,7 @@ export const WelcomeScreen = () => {
         </ModesButton>
         <StartButton
           variant="contained"
-          onClick={clickStart}
+          onClick={handleClickStartAnim}
           data-testid="start-button"
         >
           Start
