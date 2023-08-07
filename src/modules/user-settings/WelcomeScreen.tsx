@@ -6,6 +6,7 @@ import { Screen } from '../../theme/components/Screen';
 import { useBreathModeStore } from '../../store/breathModeStore';
 import { useState } from 'react';
 import { DefaultBreathModesScreen } from './DefaultBreathModesScreen';
+import { AnimatePresence } from 'framer-motion';
 
 export const WelcomeScreen = () => {
   const navigate = useNavigate();
@@ -20,9 +21,11 @@ export const WelcomeScreen = () => {
   return (
     <Screen>
       <Outlet />
+      <AnimatePresence>
         {showBreathModes && (
           <DefaultBreathModesScreen setShowBreathModes={setShowBreathModes} />
         )}
+      </AnimatePresence>
       <ButtonContainer>
         <ModesButton
           variant="contained"
