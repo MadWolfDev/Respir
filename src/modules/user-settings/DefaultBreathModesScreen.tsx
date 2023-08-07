@@ -17,7 +17,7 @@ export const DefaultBreathModesScreen = (props: {
   };
 
   return (
-    <ButtonContainer>
+    <ButtonContainer data-testid="mode-buttons">
       <FirstModeButton
         variant="contained"
         onClick={() => changeDefaultBreathMode(BreathModes.heartCoherence)}
