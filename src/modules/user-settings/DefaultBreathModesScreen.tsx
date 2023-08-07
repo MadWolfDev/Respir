@@ -3,16 +3,17 @@ import styled from '@emotion/styled';
 import { useBreathModeStore } from '../../store/breathModeStore';
 import { BreathModes } from '../../store/BreathModes.type';
 import { useNavigate } from 'react-router-dom';
-import { RoutePath } from '../../router/RoutePath.type';
+import { Dispatch, SetStateAction } from 'react';
 
-export const DefaultBreathModesScreen = () => {
+export const DefaultBreathModesScreen = (props: {
+  setShowBreathModes: Dispatch<SetStateAction<boolean>>;
+}) => {
   const updateBreathModeSelection = useBreathModeStore(
     (state) => state.updateDefaultBreathMode
   );
-  const navigate = useNavigate();
   const changeDefaultBreathMode = (newBreathMode: BreathModes) => {
     updateBreathModeSelection(newBreathMode);
-    navigate(RoutePath.welcomeScreen);
+    props.setShowBreathModes(false);
   };
 
   return (
