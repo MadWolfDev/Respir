@@ -1,7 +1,7 @@
 import { act, render, screen } from '@testing-library/react';
 import { BreathAnimationManager } from './BreathAnimationManager';
 
-describe('BreathAnimation', () => {
+describe('BreathAnimationManager', () => {
   beforeEach(() => {
     jest.useFakeTimers();
   });
