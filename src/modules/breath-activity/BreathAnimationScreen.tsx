@@ -7,14 +7,14 @@ import { Screen } from '../../theme/components/Screen';
 
 export const BreathAnimationScreen = () => {
   const navigate = useNavigate();
-  const click = () => navigate(RoutePath.welcomeScreen);
+  const handleClickReturn = () => navigate(RoutePath.welcomeScreen);
 
   return (
     <Screen>
       <AnimContent>
         <BreathAnimationManager />
       </AnimContent>
-      <ReturnButton variant="contained" onClick={click}>
+      <ReturnButton variant="contained" onClick={handleClickReturn}>
         Retour
       </ReturnButton>
     </Screen>
