@@ -1,5 +1,5 @@
 import { Button } from '@mui/material';
-import styled from '@emotion/styled';
+import { styled } from '@mui/material/styles';
 import { useBreathModeStore } from '../../store/breathModeStore';
 import { BreathModes } from '../../store/BreathModes.type';
 import { useNavigate } from 'react-router-dom';
@@ -52,16 +52,21 @@ export const DefaultBreathModesScreen = (props: {
   );
 };
 
-const ButtonContainer = styled.div`
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: space-between;
-`;
-const ModeButton = styled(Button)`
-  align-self: center;
-  margin-bottom: 1em;
-  width: 15em;
-`;
+const ButtonContainer = styled(motion.div)({
+  display: 'flex',
+  flexDirection: 'column-reverse',
+  alignItems: 'space-between',
+});
+
+const ModeButton = styled(Button)({
+  alignSelf: 'center',
+  marginBottom: '1em',
+  width: '15em',
+}) as typeof Button;
+
+const FirstModeButton = styled(ModeButton)({
+  marginBottom: '2.5em',
+}) as typeof ModeButton;
 
 const FirstModeButton = styled(ModeButton)`
   margin-bottom: 2.5em;
