@@ -17,7 +17,7 @@ export const BreathInAnimation = () => {
     },
   };
 
-  return animDuration ? (
+  return animDuration > 0 ? (
     <motion.div
       initial="initial"
       animate="animate"
