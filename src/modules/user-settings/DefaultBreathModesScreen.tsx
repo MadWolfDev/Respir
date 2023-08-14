@@ -1,29 +1,84 @@
 import { Button } from '@mui/material';
-import styled from '@emotion/styled';
+import { styled } from '@mui/material/styles';
+import { useBreathModeStore } from '../../store/breathModeStore';
+import { BreathModes } from '../../store/BreathModes.type';
+import { motion } from 'framer-motion';
+import { Dispatch, SetStateAction } from 'react';
 
-export const DefaultBreathModesScreen = () => {
+export const DefaultBreathModesScreen = (props: {
+  setShowBreathModes: Dispatch<SetStateAction<boolean>>;
+}) => {
+  const updateBreathModeSelection = useBreathModeStore(
+    (state) => state.updateDefaultBreathMode
+  );
+  const changeDefaultBreathMode = (newBreathMode: BreathModes) => {
+    updateBreathModeSelection(newBreathMode);
+    props.setShowBreathModes(false);
+  };
+
   return (
-    <ButtonContainer>
-      <FirstModeButton variant="contained">Cohérence cardiaque</FirstModeButton>
-      <ModeButton variant="contained">Respiration vitalité</ModeButton>
-      <ModeButton variant="contained">Respiration détente</ModeButton>
-      <ModeButton variant="contained">Respiration carrée</ModeButton>
-      <ModeButton variant="contained">Personnalisé</ModeButton>
+    <ButtonContainer data-testid="mode-buttons">
+      <FirstModeButton
+        variant="contained"
+        component={motion.div}
+        exit={ButtonExitAnim}
+        onClick={() => changeDefaultBreathMode(BreathModes.heartCoherence)}
+      >
+        {BreathModes.heartCoherence}
+      </FirstModeButton>
+      <ModeButton
+        variant="contained"
+        component={motion.div}
+        exit={ButtonExitAnim}
+        onClick={() => changeDefaultBreathMode(BreathModes.vitality)}
+      >
+        {BreathModes.vitality}
+      </ModeButton>
+      <ModeButton
+        variant="contained"
+        component={motion.div}
+        exit={ButtonExitAnim}
+        onClick={() => changeDefaultBreathMode(BreathModes.relaxation)}
+      >
+        {BreathModes.relaxation}
+      </ModeButton>
+      <ModeButton
+        variant="contained"
+        component={motion.div}
+        exit={ButtonExitAnim}
+        onClick={() => changeDefaultBreathMode(BreathModes.square)}
+      >
+        {BreathModes.square}
+      </ModeButton>
+      <ModeButton
+        variant="contained"
+        component={motion.div}
+        exit={ButtonExitAnim}
+        onClick={() => changeDefaultBreathMode(BreathModes.custom)}
+      >
+        {BreathModes.custom}
+      </ModeButton>
     </ButtonContainer>
   );
 };
 
-const ButtonContainer = styled.div`
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: space-between;
-`;
-const ModeButton = styled(Button)`
-  align-self: center;
-  margin-bottom: 1em;
-  width: 15em;
-`;
+const ButtonContainer = styled(motion.div)({
+  display: 'flex',
+  flexDirection: 'column-reverse',
+  alignItems: 'space-between',
+});
 
-const FirstModeButton = styled(ModeButton)`
-  margin-bottom: 2.5em;
-`;
+const ModeButton = styled(Button)({
+  alignSelf: 'center',
+  marginBottom: '1em',
+  width: '15em',
+}) as typeof Button;
+
+const FirstModeButton = styled(ModeButton)({
+  marginBottom: '2.5em',
+}) as typeof ModeButton;
+
+const ButtonExitAnim = {
+  opacity: 0,
+  transition: { duration: 0.25 },
+};

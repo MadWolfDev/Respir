@@ -24,9 +24,8 @@ describe('WelcomeScreen', () => {
     );
 
     fireEvent.click(screen.getByTestId('modes-button'));
-    expect(mockedUsedNavigate).toHaveBeenCalledWith(
-      RoutePath.defaultBreathModesScreen
-    );
+    const modeButtons = screen.getByTestId('mode-buttons');
+    expect(modeButtons).toBeInTheDocument();
   });
 
   it('should launch animation when startButton is clicked', () => {

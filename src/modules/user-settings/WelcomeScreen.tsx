@@ -1,32 +1,43 @@
 import styled from '@emotion/styled';
 import { Button } from '@mui/material';
-import { Outlet, useLocation, useNavigate } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import { RoutePath } from '../../router/RoutePath.type';
 import { Screen } from '../../theme/components/Screen';
+import { useBreathModeStore } from '../../store/breathModeStore';
+import { useState } from 'react';
+import { DefaultBreathModesScreen } from './DefaultBreathModesScreen';
+import { AnimatePresence } from 'framer-motion';
 
 export const WelcomeScreen = () => {
   const navigate = useNavigate();
-  const location = useLocation();
-  const clickModes = () =>
-    !location.pathname.includes(RoutePath.defaultBreathModesScreen)
-      ? navigate(RoutePath.defaultBreathModesScreen)
-      : navigate(RoutePath.welcomeScreen);
-  const clickStart = () => navigate(RoutePath.breathAnimationScreen);
+  const [showBreathModes, setShowBreathModes] = useState<boolean>(false);
+  const handleClickStartAnim = () => navigate(RoutePath.breathAnimationScreen);
+  const handleClickBreathModes = () => {
+    setShowBreathModes(!showBreathModes);
+  };
+  const breathModeSelected = useBreathModeStore(
+    (state) => state.breathModeSelected
+  );
 
   return (
     <Screen>
       <Outlet />
+      <AnimatePresence>
+        {showBreathModes && (
+          <DefaultBreathModesScreen setShowBreathModes={setShowBreathModes} />
+        )}
+      </AnimatePresence>
       <ButtonContainer>
         <ModesButton
           variant="contained"
-          onClick={clickModes}
+          onClick={handleClickBreathModes}
           data-testid="modes-button"
         >
-          Cohérence cardiaque
+          {breathModeSelected.breathMode}
         </ModesButton>
         <StartButton
           variant="contained"
-          onClick={clickStart}
+          onClick={handleClickStartAnim}
           data-testid="start-button"
         >
           Start

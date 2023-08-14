@@ -1,24 +1,24 @@
 import styled from '@emotion/styled';
-import { BreathAnimation } from './BreathAnimation';
+import { BreathAnimationManager } from './BreathAnimationManager';
 import { Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { RoutePath } from '../../router/RoutePath.type';
 import { Screen } from '../../theme/components/Screen';
 
-export const BreathAnimationScreen = ({ showAnim }: { showAnim: boolean }) => {
+export const BreathAnimationScreen = () => {
   const navigate = useNavigate();
-  const click = () => navigate(RoutePath.welcomeScreen);
+  const handleClickReturn = () => navigate(RoutePath.welcomeScreen);
 
-  return showAnim ? (
+  return (
     <Screen>
       <AnimContent>
-        <BreathAnimation />
+        <BreathAnimationManager />
       </AnimContent>
-      <ReturnButton variant="contained" onClick={click}>
+      <ReturnButton variant="contained" onClick={handleClickReturn}>
         Retour
       </ReturnButton>
     </Screen>
-  ) : null;
+  );
 };
 
 const AnimContent = styled.div`

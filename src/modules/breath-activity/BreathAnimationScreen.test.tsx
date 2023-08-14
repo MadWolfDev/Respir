@@ -18,7 +18,7 @@ describe('BreathAnimationScreen', () => {
     render(
       <>
         <BrowserRouter>
-          <BreathAnimationScreen showAnim={true} />
+          <BreathAnimationScreen />
         </BrowserRouter>
       </>
     );
@@ -30,7 +30,7 @@ describe('BreathAnimationScreen', () => {
     render(
       <>
         <BrowserRouter>
-          <BreathAnimationScreen showAnim={true} />
+          <BreathAnimationScreen />
         </BrowserRouter>
       </>
     );

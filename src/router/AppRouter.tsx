@@ -13,16 +13,10 @@ export const AppRouter = createBrowserRouter([
       {
         path: RoutePath.welcomeScreen,
         element: <WelcomeScreen />,
-        children: [
-          {
-            path: RoutePath.defaultBreathModesScreen,
-            element: <DefaultBreathModesScreen />,
-          },
-        ],
       },
       {
         path: RoutePath.breathAnimationScreen,
-        element: <BreathAnimationScreen showAnim={true} />,
+        element: <BreathAnimationScreen />,
       },
     ],
   },
