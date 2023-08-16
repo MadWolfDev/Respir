@@ -9,6 +9,10 @@ export const theme = createTheme({
       fontSize: '2rem',
       color: '#FFEFF2',
     },
+    h2: {
+      fontSize: '1.4rem',
+      color: '#FFEFF2',
+    },
   },
   components: {
     MuiCssBaseline: {
