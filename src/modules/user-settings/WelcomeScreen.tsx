@@ -7,13 +7,23 @@ import { useBreathModeStore } from '../../store/breathModeStore';
 import { useState } from 'react';
 import { DefaultBreathModesScreen } from './DefaultBreathModesScreen';
 import { AnimatePresence } from 'framer-motion';
+import { CustomModeScreen } from './CustomModeScreen';
+export enum Display {
+  defaultBreathModesDisplay,
+  customModeDisplay,
+  empty,
+}
 
 export const WelcomeScreen = () => {
   const navigate = useNavigate();
-  const [showBreathModes, setShowBreathModes] = useState<boolean>(false);
+  const [currentDisplay, setCurrentDisplay] = useState<Display>(Display.empty);
   const handleClickStartAnim = () => navigate(RoutePath.breathAnimationScreen);
   const handleClickBreathModes = () => {
-    setShowBreathModes(!showBreathModes);
+    setCurrentDisplay(
+      currentDisplay !== Display.defaultBreathModesDisplay
+        ? Display.defaultBreathModesDisplay
+        : Display.empty
+    );
   };
   const breathModeSelected = useBreathModeStore(
     (state) => state.breathModeSelected
@@ -22,9 +32,16 @@ export const WelcomeScreen = () => {
   return (
     <Screen>
       <Outlet />
-      <AnimatePresence>
-        {showBreathModes && (
-          <DefaultBreathModesScreen setShowBreathModes={setShowBreathModes} />
+      <AnimatePresence mode="wait">
+        {currentDisplay === Display.defaultBreathModesDisplay ? (
+          <DefaultBreathModesScreen
+            setCurrentDisplay={setCurrentDisplay}
+            key="default"
+          />
+        ) : (
+          currentDisplay === Display.customModeDisplay && (
+            <CustomModeScreen key="custom" />
+          )
         )}
       </AnimatePresence>
       <ButtonContainer>

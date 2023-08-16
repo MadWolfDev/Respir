@@ -4,16 +4,22 @@ import { useBreathModeStore } from '../../store/breathModeStore';
 import { BreathModes } from '../../store/BreathModes.type';
 import { motion } from 'framer-motion';
 import { Dispatch, SetStateAction } from 'react';
+import { Display } from './WelcomeScreen';
+import { BreathModes } from '../../store/defaultBreathConfigs';
 
-export const DefaultBreathModesScreen = (props: {
-  setShowBreathModes: Dispatch<SetStateAction<boolean>>;
+export const DefaultBreathModesScreen = ({
+  setCurrentDisplay,
+}: {
+  setCurrentDisplay: Dispatch<SetStateAction<Display>>;
 }) => {
   const updateBreathModeSelection = useBreathModeStore(
-    (state) => state.updateDefaultBreathMode
+    (state) => state.updateBreathMode
   );
-  const changeDefaultBreathMode = (newBreathMode: BreathModes) => {
+  const changeBreathMode = (newBreathMode: BreathModes) => {
     updateBreathModeSelection(newBreathMode);
-    props.setShowBreathModes(false);
+    newBreathMode === 'custom'
+      ? setCurrentDisplay(Display.customModeDisplay)
+      : setCurrentDisplay(Display.empty);
   };
 
   return (
@@ -22,7 +28,7 @@ export const DefaultBreathModesScreen = (props: {
         variant="contained"
         component={motion.div}
         exit={ButtonExitAnim}
-        onClick={() => changeDefaultBreathMode(BreathModes.heartCoherence)}
+        onClick={() => changeBreathMode('heartCoherence')}
       >
         {BreathModes.heartCoherence}
       </FirstModeButton>
@@ -30,7 +36,7 @@ export const DefaultBreathModesScreen = (props: {
         variant="contained"
         component={motion.div}
         exit={ButtonExitAnim}
-        onClick={() => changeDefaultBreathMode(BreathModes.vitality)}
+        onClick={() => changeBreathMode('vitality')}
       >
         {BreathModes.vitality}
       </ModeButton>
@@ -46,7 +52,7 @@ export const DefaultBreathModesScreen = (props: {
         variant="contained"
         component={motion.div}
         exit={ButtonExitAnim}
-        onClick={() => changeDefaultBreathMode(BreathModes.square)}
+        onClick={() => changeBreathMode('square')}
       >
         {BreathModes.square}
       </ModeButton>
@@ -54,7 +60,7 @@ export const DefaultBreathModesScreen = (props: {
         variant="contained"
         component={motion.div}
         exit={ButtonExitAnim}
-        onClick={() => changeDefaultBreathMode(BreathModes.custom)}
+        onClick={() => changeBreathMode('custom')}
       >
         {BreathModes.custom}
       </ModeButton>
