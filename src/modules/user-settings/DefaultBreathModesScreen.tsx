@@ -1,11 +1,11 @@
 import { Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { useBreathModeStore } from '../../store/breathModeStore';
-import { BreathModes } from '../../store/BreathModes.type';
 import { motion } from 'framer-motion';
 import { Dispatch, SetStateAction } from 'react';
 import { Display } from './WelcomeScreen';
 import { BreathModes } from '../../store/defaultBreathConfigs';
+import { BreathModesDisplay } from '../../store/BreathModesDisplay.type';
 
 export const DefaultBreathModesScreen = ({
   setCurrentDisplay,
@@ -30,7 +30,7 @@ export const DefaultBreathModesScreen = ({
         exit={ButtonExitAnim}
         onClick={() => changeBreathMode('heartCoherence')}
       >
-        {BreathModes.heartCoherence}
+        {BreathModesDisplay.heartCoherence}
       </FirstModeButton>
       <ModeButton
         variant="contained"
@@ -38,15 +38,15 @@ export const DefaultBreathModesScreen = ({
         exit={ButtonExitAnim}
         onClick={() => changeBreathMode('vitality')}
       >
-        {BreathModes.vitality}
+        {BreathModesDisplay.vitality}
       </ModeButton>
       <ModeButton
         variant="contained"
         component={motion.div}
         exit={ButtonExitAnim}
-        onClick={() => changeDefaultBreathMode(BreathModes.relaxation)}
+        onClick={() => changeBreathMode('relaxation')}
       >
-        {BreathModes.relaxation}
+        {BreathModesDisplay.relaxation}
       </ModeButton>
       <ModeButton
         variant="contained"
@@ -54,7 +54,7 @@ export const DefaultBreathModesScreen = ({
         exit={ButtonExitAnim}
         onClick={() => changeBreathMode('square')}
       >
-        {BreathModes.square}
+        {BreathModesDisplay.square}
       </ModeButton>
       <ModeButton
         variant="contained"
@@ -62,7 +62,7 @@ export const DefaultBreathModesScreen = ({
         exit={ButtonExitAnim}
         onClick={() => changeBreathMode('custom')}
       >
-        {BreathModes.custom}
+        {BreathModesDisplay.custom}
       </ModeButton>
     </ButtonContainer>
   );

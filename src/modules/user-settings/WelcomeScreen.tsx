@@ -8,6 +8,8 @@ import { useState } from 'react';
 import { DefaultBreathModesScreen } from './DefaultBreathModesScreen';
 import { AnimatePresence } from 'framer-motion';
 import { CustomModeScreen } from './CustomModeScreen';
+import { BreathModesDisplay } from '../../store/BreathModesDisplay.type';
+
 export enum Display {
   defaultBreathModesDisplay,
   customModeDisplay,
@@ -25,8 +27,8 @@ export const WelcomeScreen = () => {
         : Display.empty
     );
   };
-  const breathModeSelected = useBreathModeStore(
-    (state) => state.breathModeSelected
+  const selectedBreathMode = useBreathModeStore(
+    (state) => state.selectedBreathMode
   );
 
   return (
@@ -50,7 +52,7 @@ export const WelcomeScreen = () => {
           onClick={handleClickBreathModes}
           data-testid="modes-button"
         >
-          {breathModeSelected.breathMode}
+          {BreathModesDisplay[selectedBreathMode]}
         </ModesButton>
         <StartButton
           variant="contained"
