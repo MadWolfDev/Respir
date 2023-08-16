@@ -2,11 +2,11 @@ import { Typography } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useBreathModeStore } from '../../../store/breathModeStore';
 
-export const BlockOutAnimation = () => {
-  const animDuration: number = useBreathModeStore(
-    (state) => state.breathModeSelected.blockOutDuration
-  );
-
+export const BlockOutAnimation = ({
+  animDuration,
+}: {
+  animDuration: number;
+}) => {
   const blockOutAnimation = {
     initial: { y: '0vh' },
     animate: {
