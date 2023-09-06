@@ -170,10 +170,10 @@ export type AnimVariant = {
     scale?: number[] | string[];
     opacity?: number[] | string[];
     transition: {
-      repeat: number;
-      duration: number;
-      ease: string;
-      times: number[];
+      repeat?: number;
+      duration?: number;
+      ease?: string;
+      times?: number[];
     };
   };
 };
