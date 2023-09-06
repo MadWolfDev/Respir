@@ -58,7 +58,7 @@ export const WelcomeScreen = () => {
           onClick={handleClickStartAnim}
           data-testid="start-button"
         >
-          Start
+          Lancer animation
         </StartButton>
       </ButtonContainer>
     </Screen>
@@ -79,5 +79,5 @@ const ModesButton = styled(Button)`
 
 const StartButton = styled(ModesButton)`
   margin-bottom: 1.5em;
-  width: 10em;
+  width: 12em;
 `;
