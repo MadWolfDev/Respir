@@ -34,30 +34,35 @@ export const CustomModeScreen = () => {
         durationUnit="MIN"
         onValueSelected={(value) => onSliderUpdate(value, 'sessionLength')}
         title="Durée de la session"
+        hasMinimumValue={true}
       />
       <CustomSlider
         sliderInitialValue={selectedBreathConfig.breathInDuration}
         durationUnit="SEC"
         onValueSelected={(value) => onSliderUpdate(value, 'breathInDuration')}
         title="Durée de la première inspiration"
+        hasMinimumValue={true}
       />
       <CustomSlider
         sliderInitialValue={selectedBreathConfig.blockInDuration}
         durationUnit="SEC"
         onValueSelected={(value) => onSliderUpdate(value, 'blockInDuration')}
         title="Durée de la première rétention"
+        hasMinimumValue={false}
       />
       <CustomSlider
         sliderInitialValue={selectedBreathConfig.breathOutDuration}
         durationUnit="SEC"
         onValueSelected={(value) => onSliderUpdate(value, 'breathOutDuration')}
         title="Durée de l'expiration"
+        hasMinimumValue={true}
       />
       <CustomSlider
         sliderInitialValue={selectedBreathConfig.blockOutDuration}
         durationUnit="SEC"
         onValueSelected={(value) => onSliderUpdate(value, 'blockOutDuration')}
         title="Durée de la seconde rétention"
+        hasMinimumValue={false}
       />
     </GlobalContainer>
   );

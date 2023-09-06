@@ -8,11 +8,13 @@ export const CustomSlider = ({
   onValueSelected,
   durationUnit,
   title,
+  hasMinimumValue,
 }: {
   sliderInitialValue: number;
   onValueSelected: (value: number) => void;
   durationUnit: 'SEC' | 'MIN';
   title: string;
+  hasMinimumValue: boolean;
 }) => {
   const [sliderValue, setSliderValue] = useState<number>(sliderInitialValue);
 
@@ -54,7 +56,7 @@ export const CustomSlider = ({
       <Title variant="h2">{title}</Title>
       <Content>
         <StyledSlider
-          defaultValue={calculateValue(sliderValue, true)}
+          min={hasMinimumValue ? 1 : 0}
           max={14}
           onChange={handleChange}
           onChangeCommitted={handleChangeCommited}
