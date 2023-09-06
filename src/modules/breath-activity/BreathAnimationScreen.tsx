@@ -13,10 +13,14 @@ import {
 import { useBreathModeStore } from '../../store/breathModeStore';
 import { useCustomBreathModeStore } from '../../store/customBreathModeStore';
 import { defaultBreathConfigs } from '../../store/defaultBreathConfigs';
+import { ReturnButton } from './ReturnButton';
+import { useEffect, useState } from 'react';
 
 export const BreathAnimationScreen = () => {
   const navigate = useNavigate();
   const backToWelcomeScreen = () => navigate(RoutePath.welcomeScreen);
+  const [returnButtonDisabled, setReturnButtonDisabled] =
+    useState<boolean>(false);
 
   const selectedBreathMode = useBreathModeStore(
     (state) => state.selectedBreathMode
@@ -36,6 +40,7 @@ export const BreathAnimationScreen = () => {
     breathOut: selectedBreathConfig.breathOutDuration,
     sessionDuration: selectedBreathConfig.sessionLength,
   });
+
   const shampeAnimVariants: AnimVariant[] = new Array(6);
   shampeAnimVariants.fill(breathAnimationVariants.defaultShampeAnimation);
 
@@ -78,6 +83,15 @@ export const BreathAnimationScreen = () => {
 
     return null;
   };
+
+  let count: number = 0;
+
+  useEffect(() => {
+    window.onclick = () => {
+      count > 0 && setReturnButtonDisabled(false);
+      count++;
+    };
+  }, []);
 
   return (
     <Screen>
@@ -128,9 +142,11 @@ export const BreathAnimationScreen = () => {
         <Typography variant="h1">Expirez</Typography>
       </TextContentAnim>
 
-      <ReturnButton variant="contained" onClick={backToWelcomeScreen}>
-        Retour
-      </ReturnButton>
+      <ReturnButton
+        handleClick={backToWelcomeScreen}
+        buttonDisabled={returnButtonDisabled}
+        setButtonDisabled={setReturnButtonDisabled}
+      />
     </Screen>
   );
 };
