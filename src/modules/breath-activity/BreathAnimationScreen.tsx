@@ -15,6 +15,7 @@ import { useCustomBreathModeStore } from '../../store/customBreathModeStore';
 import { defaultBreathConfigs } from '../../store/defaultBreathConfigs';
 import { ReturnButton } from './ReturnButton';
 import { useEffect, useState } from 'react';
+import { TextAnimation } from './TextAnimation';
 
 export const BreathAnimationScreen = () => {
   const navigate = useNavigate();
@@ -105,42 +106,28 @@ export const BreathAnimationScreen = () => {
       </StyledImage>
 
       {selectedBreathConfig.blockInDuration > 0 && (
-        <TextContentAnim
-          initial="hidden"
-          animate="show"
-          variants={breathAnimationVariants.blockInTextAnimation}
-          zindex={0}
-        >
-          <Typography variant="h1">Maintenez</Typography>
-        </TextContentAnim>
+        <TextAnimation
+          variant={breathAnimationVariants.blockInTextAnimation}
+          content="Maintenez"
+        />
       )}
 
       {selectedBreathConfig.blockOutDuration > 0 && (
-        <TextContentAnim
-          initial="hidden"
-          animate="show"
-          variants={breathAnimationVariants.blockOutTextAnimation}
-        >
-          <Typography variant="h1">Bloquez</Typography>
-        </TextContentAnim>
+        <TextAnimation
+          variant={breathAnimationVariants.blockOutTextAnimation}
+          content="Bloquez"
+        />
       )}
 
-      <TextContentAnim
-        initial="hidden"
-        animate="show"
-        variants={breathAnimationVariants.breathInTextAnimation}
-      >
-        <Typography variant="h1">Inspirez</Typography>
-      </TextContentAnim>
+      <TextAnimation
+        variant={breathAnimationVariants.breathInTextAnimation}
+        content="Inspirez"
+      />
 
-      <TextContentAnim
-        initial="hidden"
-        animate="show"
-        variants={breathAnimationVariants.breathOutTextAnimation}
-        onAnimationComplete={backToWelcomeScreen}
-      >
-        <Typography variant="h1">Expirez</Typography>
-      </TextContentAnim>
+      <TextAnimation
+        variant={breathAnimationVariants.breathOutTextAnimation}
+        content="Expirez"
+      />
 
       <ReturnButton
         handleClick={backToWelcomeScreen}
@@ -150,22 +137,6 @@ export const BreathAnimationScreen = () => {
     </Screen>
   );
 };
-
-const TextContentAnim = styled(motion.div)<{ zindex?: number }>(
-  ({ zindex = 2 }) => ({
-    alignSelf: 'center',
-    position: 'fixed',
-    zIndex: zindex,
-  })
-);
-
-const ReturnButton = styled(Button)({
-  marginBottom: '1.5em',
-  alignSelf: 'center',
-  width: '10em',
-  position: 'fixed',
-  zIndex: 3,
-});
 
 const StyledImage = styled(motion.div)<{ url: string }>(({ url }) => ({
   backgroundImage: `url(${url})`,
