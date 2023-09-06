@@ -33,7 +33,6 @@ export const WelcomeScreen = () => {
 
   return (
     <Screen>
-      <Outlet />
       <AnimatePresence mode="wait">
         {currentDisplay === Display.defaultBreathModesDisplay ? (
           <DefaultBreathModesScreen
