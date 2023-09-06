@@ -56,10 +56,12 @@ export const CustomSlider = ({
       <Title variant="h2">{title}</Title>
       <Content>
         <StyledSlider
+          defaultValue={calculateValue(sliderInitialValue, true)}
           min={hasMinimumValue ? 1 : 0}
           max={14}
           onChange={handleChange}
           onChangeCommitted={handleChangeCommited}
+          key={`slider-${sliderInitialValue}`}
         />
         <Typography variant="h2">{displayValue(sliderValue)}</Typography>
       </Content>
