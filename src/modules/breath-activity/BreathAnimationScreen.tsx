@@ -61,8 +61,8 @@ export const BreathAnimationScreen = () => {
 
     shampeAnimVariants[i] = {
       ...shampeAnimVariants[i],
-      show: {
-        ...shampeAnimVariants[i].show,
+      animate: {
+        ...shampeAnimVariants[i].animate,
         backgroundPositionY: backgroundPositionsY,
       },
     };
@@ -72,8 +72,8 @@ export const BreathAnimationScreen = () => {
     if (index < 6) {
       return (
         <StyledImage
-          initial="hidden"
-          animate="show"
+          initial="initial"
+          animate="animate"
           variants={shampeAnimVariants[index]}
           url={shampe}
         >
@@ -98,8 +98,8 @@ export const BreathAnimationScreen = () => {
     <Screen>
       <StyledImage
         variants={breathAnimationVariants.mountainsAnimation}
-        initial="hidden"
-        animate="show"
+        initial="initial"
+        animate="animate"
         url={mountains}
       >
         {renderShampeAnimations(0)}
