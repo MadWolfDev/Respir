@@ -49,8 +49,8 @@ export const createBreathAnimationVariants = ({
 
   return {
     defaultShampeAnimation: {
-      hidden: { backgroundPositionY: '-45vh' },
-      show: {
+      initial: { backgroundPositionY: '-45vh' },
+      animate: {
         backgroundPositionY: createCorrectAnimation([
           '-45vh',
           '100vh',
@@ -67,8 +67,8 @@ export const createBreathAnimationVariants = ({
       },
     },
     mountainsAnimation: {
-      hidden: { backgroundPositionY: '-45vh' },
-      show: {
+      initial: { backgroundPositionY: '-45vh' },
+      animate: {
         backgroundPositionY: createCorrectAnimation([
           '-45vh',
           '45vh',
@@ -85,8 +85,8 @@ export const createBreathAnimationVariants = ({
       },
     },
     breathInTextAnimation: {
-      hidden: { y: '45vh' },
-      show: {
+      initial: { y: '45vh' },
+      animate: {
         y: createCorrectAnimation([
           '40vh',
           '-100vh',
@@ -103,8 +103,8 @@ export const createBreathAnimationVariants = ({
       },
     },
     breathOutTextAnimation: {
-      hidden: { y: '-100vh' },
-      show: {
+      initial: { y: '-100vh' },
+      animate: {
         y: createCorrectAnimation([
           '-120vh',
           '-120vh',
@@ -121,8 +121,8 @@ export const createBreathAnimationVariants = ({
       },
     },
     blockInTextAnimation: {
-      hidden: { y: '100vh' },
-      show: {
+      initial: { y: '100vh' },
+      animate: {
         y: createCorrectAnimation([
           '100vh',
           '-20vh',
@@ -140,8 +140,8 @@ export const createBreathAnimationVariants = ({
       },
     },
     blockOutTextAnimation: {
-      hidden: { y: '-60vh' },
-      show: {
+      initial: { y: '-60vh' },
+      animate: {
         y: createCorrectAnimation([
           '-60vh',
           '-60vh',
@@ -162,8 +162,8 @@ export const createBreathAnimationVariants = ({
 };
 
 export type AnimVariant = {
-  hidden: { backgroundPositionY?: string; y?: string };
-  show: {
+  initial: { backgroundPositionY?: string; y?: string; opacity?: number };
+  animate: {
     backgroundPositionY?: string[] | number[];
     y?: string[] | number[];
     rotate?: number[] | string[];
