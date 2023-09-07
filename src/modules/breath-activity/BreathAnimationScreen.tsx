@@ -85,12 +85,9 @@ export const BreathAnimationScreen = () => {
     return null;
   };
 
-  let count: number = 0;
-
   useEffect(() => {
     window.onclick = () => {
-      count > 0 && setReturnButtonDisabled(false);
-      count++;
+      setReturnButtonDisabled(false);
     };
   }, []);
 
