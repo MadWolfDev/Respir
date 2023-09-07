@@ -106,6 +106,7 @@ export const BreathAnimationScreen = () => {
         <TextAnimation
           variant={breathAnimationVariants.blockInTextAnimation}
           content="Maintenez"
+          zindex={0}
         />
       )}
 
