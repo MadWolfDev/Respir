@@ -29,8 +29,8 @@ export const BackgroundAnimation = ({
       '-45vh',
     ];
 
-    hasBlockOutAnim && backgroundPositionsY.splice(4, 1);
-    hasBlockInAnim && backgroundPositionsY.splice(2, 1);
+    !hasBlockOutAnim && backgroundPositionsY.splice(4, 1);
+    !hasBlockInAnim && backgroundPositionsY.splice(2, 1);
 
     shampeAnimVariants[i] = {
       ...shampeAnimVariants[i],
