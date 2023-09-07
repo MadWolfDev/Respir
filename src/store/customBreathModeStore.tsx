@@ -21,8 +21,8 @@ export const useCustomBreathModeStore = create<ICustomMode>()((set, get) => ({
   breathConfig: {
     sessionLength: 5,
     breathInDuration: 5,
-    breathOutDuration: 0,
-    blockInDuration: 5,
+    breathOutDuration: 5,
+    blockInDuration: 0,
     blockOutDuration: 0,
   },
 
