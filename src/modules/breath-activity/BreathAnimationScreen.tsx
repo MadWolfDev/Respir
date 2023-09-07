@@ -16,6 +16,7 @@ import { defaultBreathConfigs } from '../../store/defaultBreathConfigs';
 import { ReturnButton } from './ReturnButton';
 import { useEffect, useState } from 'react';
 import { TextAnimation } from './TextAnimation';
+import { BackgroundAnimation } from './BackgroundAnimation';
 
 export const BreathAnimationScreen = () => {
   const navigate = useNavigate();
@@ -42,49 +43,6 @@ export const BreathAnimationScreen = () => {
     sessionDuration: selectedBreathConfig.sessionLength,
   });
 
-  const shampeAnimVariants: AnimVariant[] = new Array(6);
-  shampeAnimVariants.fill(breathAnimationVariants.defaultShampeAnimation);
-
-  for (let i = 0; i < 6; i++) {
-    const backgroundPositionsY = [
-      '-45vh',
-      `${100 + 35 * i}vh`,
-      `${100 + 35 * i}vh`,
-      '-45vh',
-      '-45vh',
-    ];
-
-    selectedBreathConfig.blockOutDuration === 0 &&
-      backgroundPositionsY.splice(4, 1);
-    selectedBreathConfig.blockInDuration === 0 &&
-      backgroundPositionsY.splice(2, 1);
-
-    shampeAnimVariants[i] = {
-      ...shampeAnimVariants[i],
-      animate: {
-        ...shampeAnimVariants[i].animate,
-        backgroundPositionY: backgroundPositionsY,
-      },
-    };
-  }
-
-  const renderShampeAnimations = (index: number) => {
-    if (index < 6) {
-      return (
-        <StyledImage
-          initial="initial"
-          animate="animate"
-          variants={shampeAnimVariants[index]}
-          url={shampe}
-        >
-          {renderShampeAnimations(index + 1)}
-        </StyledImage>
-      );
-    }
-
-    return null;
-  };
-
   useEffect(() => {
     window.onclick = () => {
       setReturnButtonDisabled(false);
@@ -93,14 +51,15 @@ export const BreathAnimationScreen = () => {
 
   return (
     <Screen>
-      <StyledImage
-        variants={breathAnimationVariants.mountainsAnimation}
-        initial="initial"
-        animate="animate"
-        url={mountains}
-      >
-        {renderShampeAnimations(0)}
-      </StyledImage>
+      <BackgroundAnimation
+        mountainsAnimVariant={breathAnimationVariants.mountainsAnimation}
+        shampeAnimVariant={breathAnimationVariants.defaultShampeAnimation}
+        shampesNumber={6}
+        hasBlockInAnim={selectedBreathConfig.blockInDuration > 0 ? true : false}
+        hasBlockOutAnim={
+          selectedBreathConfig.blockOutDuration > 0 ? true : false
+        }
+      />
 
       {selectedBreathConfig.blockInDuration > 0 && (
         <TextAnimation
@@ -135,14 +94,3 @@ export const BreathAnimationScreen = () => {
     </Screen>
   );
 };
-
-const StyledImage = styled(motion.div)<{ url: string }>(({ url }) => ({
-  backgroundImage: `url(${url})`,
-  width: '100%',
-  height: '100%',
-  backgroundSize: 'cover',
-  backgroundRepeat: 'no-repeat',
-  position: 'fixed',
-  overflow: 'hidden',
-  zIndex: 1,
-}));
