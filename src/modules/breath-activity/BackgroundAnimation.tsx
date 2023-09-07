@@ -10,12 +10,14 @@ export const BackgroundAnimation = ({
   shampesNumber,
   hasBlockInAnim,
   hasBlockOutAnim,
+  handleAnimationComplete,
 }: {
   mountainsAnimVariant: AnimVariant;
   shampeAnimVariant: AnimVariant;
   shampesNumber: number;
   hasBlockInAnim: boolean;
   hasBlockOutAnim: boolean;
+  handleAnimationComplete: () => void;
 }) => {
   const shampeAnimVariants: AnimVariant[] = new Array(shampesNumber);
   shampeAnimVariants.fill(shampeAnimVariant);
@@ -49,6 +51,7 @@ export const BackgroundAnimation = ({
           animate="animate"
           variants={shampeAnimVariants[index]}
           url={shampe}
+          onAnimationComplete={handleAnimationComplete}
         >
           {renderShampeAnimations(index + 1)}
         </Image>

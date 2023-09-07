@@ -59,6 +59,7 @@ export const BreathAnimationScreen = () => {
         hasBlockOutAnim={
           selectedBreathConfig.blockOutDuration > 0 ? true : false
         }
+        handleAnimationComplete={backToWelcomeScreen}
       />
 
       {selectedBreathConfig.blockInDuration > 0 && (
