@@ -5,7 +5,7 @@ import { RoutePath } from '../../router/RoutePath.type';
 import { Screen } from '../../theme/components/Screen';
 import { useBreathModeStore } from '../../store/breathModeStore';
 import { useState } from 'react';
-import { DefaultBreathModesScreen } from './DefaultBreathModesScreen';
+import { BreathModesScreen } from './BreathModesScreen';
 import { AnimatePresence } from 'framer-motion';
 import { CustomModeScreen } from './CustomModeScreen';
 import { BreathModesDisplay } from '../../store/BreathModesDisplay.type';
@@ -35,7 +35,7 @@ export const WelcomeScreen = () => {
     <Screen>
       <AnimatePresence mode="wait">
         {currentDisplay === Display.defaultBreathModesDisplay ? (
-          <DefaultBreathModesScreen
+          <BreathModesScreen
             setCurrentDisplay={setCurrentDisplay}
             key="default"
           />

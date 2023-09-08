@@ -1,15 +1,15 @@
 import { render } from '@testing-library/react';
-import { DefaultBreathModesScreen } from './DefaultBreathModesScreen';
+import { BreathModesScreen } from './BreathModesScreen';
 import { BrowserRouter } from 'react-router-dom';
 
-describe('DefaultBreathModesScreen', () => {
+describe('BreathModesScreen', () => {
   it('should display all the buttons', () => {
     const setStateMock = jest.fn();
 
     const component = render(
       <>
         <BrowserRouter>
-          <DefaultBreathModesScreen setCurrentDisplay={setStateMock} />
+          <BreathModesScreen setCurrentDisplay={setStateMock} />
         </BrowserRouter>
       </>
     );

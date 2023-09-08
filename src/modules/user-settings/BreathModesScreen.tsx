@@ -1,4 +1,3 @@
-import { Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { useBreathModeStore } from '../../store/breathModeStore';
 import { motion } from 'framer-motion';
@@ -9,7 +8,7 @@ import { BreathModesDisplay } from '../../store/BreathModesDisplay.type';
 import { AnimVariant } from '../breath-activity/createBreathAnimationVariants';
 import { CustomButton } from './CustomButton';
 
-export const DefaultBreathModesScreen = ({
+export const BreathModesScreen = ({
   setCurrentDisplay,
 }: {
   setCurrentDisplay: Dispatch<SetStateAction<Display>>;
