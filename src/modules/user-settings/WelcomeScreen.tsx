@@ -1,13 +1,13 @@
 import styled from '@emotion/styled';
 import { Button } from '@mui/material';
-import { Outlet, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { RoutePath } from '../../router/RoutePath.type';
 import { Screen } from '../../theme/components/Screen';
 import { useBreathModeStore } from '../../store/breathModeStore';
 import { useState } from 'react';
 import { BreathModesScreen } from './BreathModesScreen';
 import { AnimatePresence } from 'framer-motion';
-import { CustomModeScreen } from './CustomModeScreen';
+import { SlidersScreen } from './SlidersScreen';
 import { BreathModesDisplay } from '../../store/BreathModesDisplay.type';
 
 export enum Display {
@@ -41,7 +41,7 @@ export const WelcomeScreen = () => {
           />
         ) : (
           currentDisplay === Display.customModeDisplay && (
-            <CustomModeScreen key="custom" />
+            <SlidersScreen key="custom" />
           )
         )}
       </AnimatePresence>

@@ -8,7 +8,7 @@ import {
   useCustomBreathModeStore,
 } from '../../store/customBreathModeStore';
 
-export const CustomModeScreen = () => {
+export const SlidersScreen = () => {
   const selectedBreathMode = useBreathModeStore(
     (state) => state.selectedBreathMode
   );
