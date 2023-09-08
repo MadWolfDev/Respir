@@ -9,12 +9,14 @@ export const CustomSlider = ({
   durationUnit,
   title,
   hasMinimumValue,
+  disabled,
 }: {
   sliderInitialValue: number;
   onValueSelected: (value: number) => void;
   durationUnit: 'SEC' | 'MIN';
   title: string;
   hasMinimumValue: boolean;
+  disabled: boolean;
 }) => {
   const [sliderValue, setSliderValue] = useState<number>(sliderInitialValue);
 
@@ -61,6 +63,7 @@ export const CustomSlider = ({
           max={14}
           onChange={handleChange}
           onChangeCommitted={handleChangeCommited}
+          disabled={disabled}
           key={`slider-${sliderInitialValue}`}
         />
         <Typography variant="h2">{displayValue(sliderValue)}</Typography>

@@ -26,6 +26,8 @@ export const SlidersScreen = () => {
   const onSliderUpdate = (value: number, breathStage: breathStages) => {
     updateCustomBreathConfig({ breathStage, value });
   };
+  const slidersDisabled: boolean =
+    selectedBreathMode === 'custom' ? false : true;
 
   return (
     <GlobalContainer>
@@ -35,6 +37,7 @@ export const SlidersScreen = () => {
         onValueSelected={(value) => onSliderUpdate(value, 'sessionLength')}
         title="Durée de la session"
         hasMinimumValue={true}
+        disabled={slidersDisabled}
       />
       <CustomSlider
         sliderInitialValue={selectedBreathConfig.breathInDuration}
@@ -42,6 +45,7 @@ export const SlidersScreen = () => {
         onValueSelected={(value) => onSliderUpdate(value, 'breathInDuration')}
         title="Durée de la première inspiration"
         hasMinimumValue={true}
+        disabled={slidersDisabled}
       />
       <CustomSlider
         sliderInitialValue={selectedBreathConfig.blockInDuration}
@@ -49,6 +53,7 @@ export const SlidersScreen = () => {
         onValueSelected={(value) => onSliderUpdate(value, 'blockInDuration')}
         title="Durée de la première rétention"
         hasMinimumValue={false}
+        disabled={slidersDisabled}
       />
       <CustomSlider
         sliderInitialValue={selectedBreathConfig.breathOutDuration}
@@ -56,6 +61,7 @@ export const SlidersScreen = () => {
         onValueSelected={(value) => onSliderUpdate(value, 'breathOutDuration')}
         title="Durée de l'expiration"
         hasMinimumValue={true}
+        disabled={slidersDisabled}
       />
       <CustomSlider
         sliderInitialValue={selectedBreathConfig.blockOutDuration}
@@ -63,6 +69,7 @@ export const SlidersScreen = () => {
         onValueSelected={(value) => onSliderUpdate(value, 'blockOutDuration')}
         title="Durée de la seconde rétention"
         hasMinimumValue={false}
+        disabled={slidersDisabled}
       />
     </GlobalContainer>
   );
