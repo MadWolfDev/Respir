@@ -18,9 +18,7 @@ export const BreathModesScreen = ({
   );
   const changeBreathMode = (newBreathMode: BreathModes) => {
     updateBreathModeSelection(newBreathMode);
-    newBreathMode === 'custom'
-      ? setCurrentDisplay(Display.customModeDisplay)
-      : setCurrentDisplay(Display.empty);
+    setCurrentDisplay(Display.slidersDisplay);
   };
 
   const ButtonExitAnim: ExitAnim = {
