@@ -7,6 +7,7 @@ import { Display } from './WelcomeScreen';
 import { BreathModes } from '../../store/defaultBreathConfigs';
 import { BreathModesDisplay } from '../../store/BreathModesDisplay.type';
 import { AnimVariant } from '../breath-activity/createBreathAnimationVariants';
+import { CustomButton } from './CustomButton';
 
 export const DefaultBreathModesScreen = ({
   setCurrentDisplay,
@@ -59,46 +60,45 @@ export const DefaultBreathModesScreen = ({
 
   return (
     <ButtonContainer data-testid="mode-buttons">
-      <FirstModeButton
-        variant="contained"
-        component={motion.div}
-        exit={ButtonExitAnim}
-        onClick={() => changeBreathMode('heartCoherence')}
-      >
-        {BreathModesDisplay.heartCoherence}
-      </FirstModeButton>
-      <ModeButton
-        variant="contained"
-        component={motion.div}
-        exit={ButtonExitAnim}
-        onClick={() => changeBreathMode('vitality')}
-      >
-        {BreathModesDisplay.vitality}
-      </ModeButton>
-      <ModeButton
-        variant="contained"
-        component={motion.div}
-        exit={ButtonExitAnim}
-        onClick={() => changeBreathMode('relaxation')}
-      >
-        {BreathModesDisplay.relaxation}
-      </ModeButton>
-      <ModeButton
-        variant="contained"
-        component={motion.div}
-        exit={ButtonExitAnim}
-        onClick={() => changeBreathMode('square')}
-      >
-        {BreathModesDisplay.square}
-      </ModeButton>
-      <ModeButton
-        variant="contained"
-        component={motion.div}
-        exit={ButtonExitAnim}
-        onClick={() => changeBreathMode('custom')}
-      >
-        {BreathModesDisplay.custom}
-      </ModeButton>
+      <CustomButton
+        buttonText={BreathModesDisplay.custom}
+        handleClick={() => changeBreathMode('custom')}
+        buttonFixed={true}
+        animVariant={ButtonsEnterAnimVariants[4]}
+        exitAnim={ButtonsExitAnims[4]}
+      />
+
+      <CustomButton
+        buttonText={BreathModesDisplay.square}
+        handleClick={() => changeBreathMode('square')}
+        buttonFixed={true}
+        animVariant={ButtonsEnterAnimVariants[3]}
+        exitAnim={ButtonsExitAnims[3]}
+      />
+
+      <CustomButton
+        buttonText={BreathModesDisplay.relaxation}
+        handleClick={() => changeBreathMode('relaxation')}
+        buttonFixed={true}
+        animVariant={ButtonsEnterAnimVariants[2]}
+        exitAnim={ButtonsExitAnims[2]}
+      />
+
+      <CustomButton
+        buttonText={BreathModesDisplay.vitality}
+        handleClick={() => changeBreathMode('vitality')}
+        buttonFixed={true}
+        animVariant={ButtonsEnterAnimVariants[1]}
+        exitAnim={ButtonsExitAnims[1]}
+      />
+
+      <CustomButton
+        buttonText={BreathModesDisplay.heartCoherence}
+        handleClick={() => changeBreathMode('heartCoherence')}
+        buttonFixed={true}
+        animVariant={ButtonsEnterAnimVariants[0]}
+        exitAnim={ButtonsExitAnims[0]}
+      />
     </ButtonContainer>
   );
 };
