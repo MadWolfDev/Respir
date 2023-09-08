@@ -27,7 +27,7 @@ export const BreathModesScreen = ({
   };
 
   const ButtonEnterAnimVariant: AnimVariant = {
-    initial: { y: '5em' },
+    initial: { y: '2.5em' },
     animate: {
       y: '0em',
       transition: { duration: 0.75, ease: 'backOut' },
