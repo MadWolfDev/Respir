@@ -6,6 +6,7 @@ import { Dispatch, SetStateAction } from 'react';
 import { Display } from './WelcomeScreen';
 import { BreathModes } from '../../store/defaultBreathConfigs';
 import { BreathModesDisplay } from '../../store/BreathModesDisplay.type';
+import { AnimVariant } from '../breath-activity/createBreathAnimationVariants';
 
 export const DefaultBreathModesScreen = ({
   setCurrentDisplay,
@@ -21,6 +22,40 @@ export const DefaultBreathModesScreen = ({
       ? setCurrentDisplay(Display.customModeDisplay)
       : setCurrentDisplay(Display.empty);
   };
+
+  const ButtonExitAnim: ExitAnim = {
+    y: '0em',
+    transition: { duration: 0.75, delay: 0, ease: 'anticipate' },
+  };
+
+  const ButtonEnterAnimVariant: AnimVariant = {
+    initial: { y: '5em' },
+    animate: {
+      y: '0em',
+      transition: { duration: 0.75, ease: 'backOut' },
+    },
+  };
+
+  const ButtonsExitAnims: ExitAnim[] = new Array(5);
+  ButtonsExitAnims.fill(ButtonExitAnim);
+  const ButtonsEnterAnimVariants: AnimVariant[] = new Array(5);
+  ButtonsEnterAnimVariants.fill(ButtonEnterAnimVariant);
+
+  for (let i = 0; i < 5; i++) {
+    ButtonsExitAnims[i] = {
+      ...ButtonsExitAnims[i],
+      y: `${2.5}em`,
+      transition: { ...ButtonsExitAnims[i].transition, delay: i * 0.05 },
+    };
+
+    ButtonsEnterAnimVariants[i] = {
+      ...ButtonsEnterAnimVariants[i],
+      animate: {
+        ...ButtonsEnterAnimVariants[i].animate,
+        y: `${-i * 3.5 - 3}em`,
+      },
+    };
+  }
 
   return (
     <ButtonContainer data-testid="mode-buttons">
@@ -71,20 +106,9 @@ export const DefaultBreathModesScreen = ({
 const ButtonContainer = styled(motion.div)({
   display: 'flex',
   flexDirection: 'column-reverse',
-  alignItems: 'space-between',
 });
 
-const ModeButton = styled(Button)({
-  alignSelf: 'center',
-  marginBottom: '1em',
-  width: '15em',
-}) as typeof Button;
-
-const FirstModeButton = styled(ModeButton)({
-  marginBottom: '2.5em',
-}) as typeof ModeButton;
-
-const ButtonExitAnim = {
-  opacity: 0,
-  transition: { duration: 0.25 },
+export type ExitAnim = {
+  y?: string;
+  transition: { duration: number; delay?: number; ease?: string };
 };

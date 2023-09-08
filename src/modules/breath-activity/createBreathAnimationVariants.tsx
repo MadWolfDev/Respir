@@ -165,7 +165,7 @@ export type AnimVariant = {
   initial: { backgroundPositionY?: string; y?: string; opacity?: number };
   animate: {
     backgroundPositionY?: string[] | number[];
-    y?: string[] | number[];
+    y?: string[] | number[] | string;
     rotate?: number[] | string[];
     scale?: number[] | string[];
     opacity?: number[] | string[];
@@ -174,6 +174,7 @@ export type AnimVariant = {
       duration?: number;
       ease?: string;
       times?: number[];
+      delay?: number;
     };
   };
 };
