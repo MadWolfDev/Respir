@@ -12,7 +12,7 @@ export const CustomButton = ({
   buttonText,
 }: {
   buttonText: string;
-  handleClick: (arg0?: any) => void;
+  handleClick: () => void;
   buttonWidth?: number;
   buttonFixed?: boolean;
   animVariant?: AnimVariant;
