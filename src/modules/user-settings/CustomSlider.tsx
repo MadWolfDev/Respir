@@ -2,6 +2,8 @@ import styled from '@emotion/styled';
 import { Slider, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import { AnimVariant } from '../breath-activity/createBreathAnimationVariants';
+import { ExitAnim } from './BreathModesScreen';
 
 export const CustomSlider = ({
   sliderInitialValue,
@@ -10,6 +12,8 @@ export const CustomSlider = ({
   title,
   hasMinimumValue,
   disabled,
+  animVariant,
+  exitAnim,
 }: {
   sliderInitialValue: number;
   onValueSelected: (value: number) => void;
@@ -17,6 +21,8 @@ export const CustomSlider = ({
   title: string;
   hasMinimumValue: boolean;
   disabled: boolean;
+  animVariant?: AnimVariant;
+  exitAnim?: ExitAnim;
 }) => {
   const [sliderValue, setSliderValue] = useState<number>(sliderInitialValue);
 
@@ -51,9 +57,10 @@ export const CustomSlider = ({
 
   return (
     <SliderContainer
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1, transition: { duration: 0.25 } }}
-      exit={{ opacity: 0 }}
+      initial="initial"
+      animate="animate"
+      variants={animVariant}
+      exit={exitAnim}
     >
       <Title variant="h2">{title}</Title>
       <Content>

@@ -162,10 +162,16 @@ export const createBreathAnimationVariants = ({
 };
 
 export type AnimVariant = {
-  initial: { backgroundPositionY?: string; y?: string; opacity?: number };
+  initial: {
+    backgroundPositionY?: string;
+    y?: string;
+    opacity?: number;
+    x?: string;
+  };
   animate: {
     backgroundPositionY?: string[] | number[];
     y?: string[] | number[] | string;
+    x?: string;
     rotate?: number[] | string[];
     scale?: number[] | string[];
     opacity?: number[] | string[];
