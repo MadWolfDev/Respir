@@ -32,10 +32,13 @@ export const WelcomeScreen = () => {
     (state) => state.selectedBreathMode
   );
 
+  const hasToShowBreathmodesDisplay: boolean =
+    currentDisplay === Display.breathModesDisplay;
+
   return (
     <Screen>
-      <AnimatePresence mode="wait">
-        {currentDisplay === Display.breathModesDisplay ? (
+      <AnimatePresence mode={hasToShowBreathmodesDisplay ? 'sync' : 'wait'}>
+        {hasToShowBreathmodesDisplay ? (
           <BreathModesScreen
             setCurrentDisplay={setCurrentDisplay}
             key="default"
@@ -46,6 +49,7 @@ export const WelcomeScreen = () => {
           )
         )}
       </AnimatePresence>
+
       <ButtonContainer>
         <ModesButton
           variant="contained"

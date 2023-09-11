@@ -30,7 +30,7 @@ export const BreathModesScreen = ({
     initial: { y: '2.5em' },
     animate: {
       y: '0em',
-      transition: { duration: 0.75, ease: 'backOut' },
+      transition: { duration: 0.75, delay: 0.5, ease: 'backOut' },
     },
   };
 
@@ -107,5 +107,6 @@ const ButtonContainer = styled(motion.div)({
 
 export type ExitAnim = {
   y?: string;
+  x?: string;
   transition: { duration: number; delay?: number; ease?: string };
 };
