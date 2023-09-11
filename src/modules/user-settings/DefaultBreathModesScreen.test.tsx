@@ -9,7 +9,7 @@ describe('DefaultBreathModesScreen', () => {
     const component = render(
       <>
         <BrowserRouter>
-          <DefaultBreathModesScreen setShowBreathModes={setStateMock} />
+          <DefaultBreathModesScreen setCurrentDisplay={setStateMock} />
         </BrowserRouter>
       </>
     );

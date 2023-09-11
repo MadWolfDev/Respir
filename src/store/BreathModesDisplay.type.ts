@@ -1,4 +1,4 @@
-export enum BreathModes {
+export enum BreathModesDisplay {
   heartCoherence = 'Cohérence cardiaque',
   vitality = 'Respiration vitalité',
   relaxation = 'Respiration détente',

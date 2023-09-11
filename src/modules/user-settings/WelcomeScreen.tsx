@@ -7,24 +7,42 @@ import { useBreathModeStore } from '../../store/breathModeStore';
 import { useState } from 'react';
 import { DefaultBreathModesScreen } from './DefaultBreathModesScreen';
 import { AnimatePresence } from 'framer-motion';
+import { CustomModeScreen } from './CustomModeScreen';
+import { BreathModesDisplay } from '../../store/BreathModesDisplay.type';
+
+export enum Display {
+  defaultBreathModesDisplay,
+  customModeDisplay,
+  empty,
+}
 
 export const WelcomeScreen = () => {
   const navigate = useNavigate();
-  const [showBreathModes, setShowBreathModes] = useState<boolean>(false);
+  const [currentDisplay, setCurrentDisplay] = useState<Display>(Display.empty);
   const handleClickStartAnim = () => navigate(RoutePath.breathAnimationScreen);
   const handleClickBreathModes = () => {
-    setShowBreathModes(!showBreathModes);
+    setCurrentDisplay(
+      currentDisplay !== Display.defaultBreathModesDisplay
+        ? Display.defaultBreathModesDisplay
+        : Display.empty
+    );
   };
-  const breathModeSelected = useBreathModeStore(
-    (state) => state.breathModeSelected
+  const selectedBreathMode = useBreathModeStore(
+    (state) => state.selectedBreathMode
   );
 
   return (
     <Screen>
-      <Outlet />
-      <AnimatePresence>
-        {showBreathModes && (
-          <DefaultBreathModesScreen setShowBreathModes={setShowBreathModes} />
+      <AnimatePresence mode="wait">
+        {currentDisplay === Display.defaultBreathModesDisplay ? (
+          <DefaultBreathModesScreen
+            setCurrentDisplay={setCurrentDisplay}
+            key="default"
+          />
+        ) : (
+          currentDisplay === Display.customModeDisplay && (
+            <CustomModeScreen key="custom" />
+          )
         )}
       </AnimatePresence>
       <ButtonContainer>
@@ -33,14 +51,14 @@ export const WelcomeScreen = () => {
           onClick={handleClickBreathModes}
           data-testid="modes-button"
         >
-          {breathModeSelected.breathMode}
+          {BreathModesDisplay[selectedBreathMode]}
         </ModesButton>
         <StartButton
           variant="contained"
           onClick={handleClickStartAnim}
           data-testid="start-button"
         >
-          Start
+          Lancer animation
         </StartButton>
       </ButtonContainer>
     </Screen>
@@ -61,5 +79,5 @@ const ModesButton = styled(Button)`
 
 const StartButton = styled(ModesButton)`
   margin-bottom: 1.5em;
-  width: 10em;
+  width: 12em;
 `;
