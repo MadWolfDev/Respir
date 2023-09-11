@@ -17,7 +17,7 @@ export const Root = () => {
 };
 
 const AppContent = styled.div`
-  background: linear-gradient(180deg, #ff8e8e 0%, #fff7dc 100%);
+  background: linear-gradient(180deg, #ff8e8e 0%, #fff7dc 150%);
   height: 100vh;
   display: flex;
   flex-direction: column;
