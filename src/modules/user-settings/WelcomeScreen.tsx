@@ -63,7 +63,7 @@ export const WelcomeScreen = () => {
           onClick={handleClickStartAnim}
           data-testid="start-button"
         >
-          Lancer animation
+          Commencer
         </StartButton>
       </ButtonContainer>
     </Screen>
