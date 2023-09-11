@@ -3,7 +3,7 @@ import { Slider, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { AnimVariant } from '../breath-activity/createBreathAnimationVariants';
-import { ExitAnim } from './BreathModesScreen';
+import { ExitAnim } from './createUIAnimation';
 
 export const CustomSlider = ({
   sliderInitialValue,

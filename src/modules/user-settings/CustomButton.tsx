@@ -1,7 +1,7 @@
 import { Button, styled } from '@mui/material';
 import { motion } from 'framer-motion';
 import { AnimVariant } from '../breath-activity/createBreathAnimationVariants';
-import { ExitAnim } from './BreathModesScreen';
+import { ExitAnim } from './createUIAnimation';
 
 export const CustomButton = ({
   buttonWidth = 15,
