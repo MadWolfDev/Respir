@@ -1,7 +1,7 @@
 import { AnimVariant } from './createBreathAnimationVariants';
 import { motion } from 'framer-motion';
 import { Button, styled } from '@mui/material';
-import { useState, Dispatch, SetStateAction } from 'react';
+import { Dispatch, SetStateAction } from 'react';
 
 export const ReturnButton = ({
   handleClick,

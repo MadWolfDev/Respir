@@ -1,50 +1,55 @@
 import styled from '@emotion/styled';
 import { Button } from '@mui/material';
-import { Outlet, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { RoutePath } from '../../router/RoutePath.type';
 import { Screen } from '../../theme/components/Screen';
 import { useBreathModeStore } from '../../store/breathModeStore';
 import { useState } from 'react';
-import { DefaultBreathModesScreen } from './DefaultBreathModesScreen';
+import { BreathModesScreen } from './BreathModesScreen';
 import { AnimatePresence } from 'framer-motion';
-import { CustomModeScreen } from './CustomModeScreen';
+import { SlidersScreen } from './SlidersScreen';
 import { BreathModesDisplay } from '../../store/BreathModesDisplay.type';
 
 export enum Display {
-  defaultBreathModesDisplay,
-  customModeDisplay,
-  empty,
+  breathModesDisplay,
+  slidersDisplay,
 }
 
 export const WelcomeScreen = () => {
   const navigate = useNavigate();
-  const [currentDisplay, setCurrentDisplay] = useState<Display>(Display.empty);
+  const [currentDisplay, setCurrentDisplay] = useState<Display>(
+    Display.slidersDisplay
+  );
   const handleClickStartAnim = () => navigate(RoutePath.breathAnimationScreen);
   const handleClickBreathModes = () => {
     setCurrentDisplay(
-      currentDisplay !== Display.defaultBreathModesDisplay
-        ? Display.defaultBreathModesDisplay
-        : Display.empty
+      currentDisplay !== Display.breathModesDisplay
+        ? Display.breathModesDisplay
+        : Display.slidersDisplay
     );
   };
   const selectedBreathMode = useBreathModeStore(
     (state) => state.selectedBreathMode
   );
 
+  const hasToShowBreathmodesDisplay: boolean =
+    currentDisplay === Display.breathModesDisplay;
+
   return (
     <Screen>
-      <AnimatePresence mode="wait">
-        {currentDisplay === Display.defaultBreathModesDisplay ? (
-          <DefaultBreathModesScreen
+      <AnimatePresence mode={hasToShowBreathmodesDisplay ? 'sync' : 'wait'}>
+        {hasToShowBreathmodesDisplay ? (
+          <BreathModesScreen
             setCurrentDisplay={setCurrentDisplay}
             key="default"
           />
         ) : (
-          currentDisplay === Display.customModeDisplay && (
-            <CustomModeScreen key="custom" />
+          currentDisplay === Display.slidersDisplay && (
+            <SlidersScreen key="custom" />
           )
         )}
       </AnimatePresence>
+
       <ButtonContainer>
         <ModesButton
           variant="contained"
