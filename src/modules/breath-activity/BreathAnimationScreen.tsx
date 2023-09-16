@@ -1,15 +1,7 @@
-import styled from '@emotion/styled';
-import { Button, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { RoutePath } from '../../router/RoutePath.type';
+import { createBreathAnimationVariants } from './createBreathAnimationVariants';
 import { Screen } from '../../theme/components/Screen';
-import { motion } from 'framer-motion';
-import mountains from '../../data/images/Mountains.svg';
-import shampe from '../../data/images/Shampe_Mstr.svg';
-import {
-  createBreathAnimationVariants,
-  AnimVariant,
-} from './createBreathAnimationVariants';
 import { useBreathModeStore } from '../../store/breathModeStore';
 import { useCustomBreathModeStore } from '../../store/customBreathModeStore';
 import { defaultBreathConfigs } from '../../store/defaultBreathConfigs';

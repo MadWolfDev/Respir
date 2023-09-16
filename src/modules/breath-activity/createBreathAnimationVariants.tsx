@@ -19,16 +19,17 @@ export const createBreathAnimationVariants = ({
   );
 
   const animTimes: number[] = [0];
-  breathDurations.map((breathDuration) => {
-    breathDuration > 0 &&
+  breathDurations.map(
+    (breathDuration) =>
+      breathDuration > 0 &&
       animTimes.push(
         animTimes[animTimes.length - 1] + breathDuration / animDuration
-      );
-  });
+      )
+  );
 
-  animTimes.map((animTime, index) => {
-    animTimes[index] = Number(animTime.toFixed(2));
-  });
+  animTimes.map(
+    (animTime, index) => (animTimes[index] = Number(animTime.toFixed(2)))
+  );
 
   const blockOutAnimTimes: number[] = Object.assign([], animTimes);
 
