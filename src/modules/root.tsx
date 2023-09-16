@@ -7,7 +7,7 @@ export const Root = () => {
   const navigate = useNavigate();
   useEffect(() => {
     navigate(RoutePath.welcomeScreen);
-  }, []);
+  }, [navigate]);
 
   return (
     <AppContent>
