@@ -5,7 +5,6 @@ import { Dispatch, SetStateAction } from 'react';
 import { Display } from './WelcomeScreen';
 import { BreathModes } from '../../store/defaultBreathConfigs';
 import { BreathModesDisplay } from '../../store/BreathModesDisplay.type';
-import { AnimVariant } from '../breath-activity/createBreathAnimationVariants';
 import { CustomButton } from './CustomButton';
 import {
   createButtonsExitAnim,
