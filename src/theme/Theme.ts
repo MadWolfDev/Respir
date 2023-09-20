@@ -6,11 +6,11 @@ export const theme = createTheme({
     fontFamily: 'Tuffy',
     h1: {
       fontWeight: 700,
-      fontSize: '3.5rem',
+      fontSize: '3.5em',
       color: '#FFEFF2',
     },
     h2: {
-      fontSize: '1.4rem',
+      fontSize: '1.4em',
       color: '#FFEFF2',
     },
   },
