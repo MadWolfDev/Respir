@@ -45,6 +45,7 @@ const StyledReturnButton = motion(
     alignSelf: 'center',
     width: '10em',
     position: 'fixed',
+    borderRadius: 50,
     zIndex: 3,
   })
 );
