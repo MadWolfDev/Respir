@@ -27,7 +27,7 @@ export const createButtonsVariantAnim = (
     initial: { y: '2.5em' },
     animate: {
       y: '0em',
-      transition: { duration: 0.75, delay: 0.5, ease: 'backOut' },
+      transition: { duration: 0.75, delay: 0.3, ease: 'backOut' },
     },
   };
 
