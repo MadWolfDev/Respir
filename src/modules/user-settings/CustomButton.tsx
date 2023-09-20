@@ -31,6 +31,7 @@ export const CustomButton = ({
   return (
     <StyledButton
       variant="contained"
+      color="custom"
       component={motion.div}
       initial="initial"
       animate="animate"

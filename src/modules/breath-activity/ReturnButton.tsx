@@ -28,6 +28,7 @@ export const ReturnButton = ({
     <StyledReturnButton
       variant="contained"
       onClick={handleClick}
+      color="custom"
       variants={ButtonAnimationVariant}
       initial="initial"
       animate="animate"

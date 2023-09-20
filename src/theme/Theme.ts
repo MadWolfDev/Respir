@@ -14,6 +14,12 @@ export const theme = createTheme({
       color: '#FFEFF2',
     },
   },
+  palette: {
+    custom: {
+      main: '#DB4B57',
+      contrastText: '#FFEFF2',
+    },
+  },
   components: {
     MuiCssBaseline: {
       styleOverrides: `
