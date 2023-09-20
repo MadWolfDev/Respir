@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { AnimVariant } from '../breath-activity/createBreathAnimationVariants';
 import { ExitAnim } from './createUIAnimation';
+import { createMarginBottomSlidersValue } from './createValuesWithScreenSize';
 
 export const CustomSlider = ({
   sliderInitialValue,
@@ -98,6 +99,6 @@ const Title = styled(Typography)({
 const SliderContainer = styled(motion.div)({
   alignSelf: 'center',
   display: 'flex',
-  marginTop: '2em',
   flexDirection: 'column',
+  marginBottom: `${createMarginBottomSlidersValue()}px`,
 });

@@ -11,6 +11,7 @@ import {
   createSlidersExitAnim,
   createSlidersVariantAnim,
 } from './createUIAnimation';
+import { createMarginBottomSlidersContainerValue } from './createValuesWithScreenSize';
 
 export const SlidersScreen = () => {
   const selectedBreathMode = useBreathModeStore(
@@ -95,7 +96,6 @@ export const SlidersScreen = () => {
 const GlobalContainer = styled(motion.div)({
   display: 'flex',
   flexDirection: 'column',
-  alignItems: 'space-between',
-  flex: 1,
   overflow: 'hidden',
+  marginBottom: `${createMarginBottomSlidersContainerValue()}px`,
 });
