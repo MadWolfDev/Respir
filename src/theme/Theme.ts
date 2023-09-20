@@ -29,5 +29,20 @@ export const theme = createTheme({
             }
         `,
     },
+    MuiSlider: {
+      styleOverrides: {
+        root: {
+          '&.Mui-disabled .MuiSlider-track': { color: '#db7981' },
+          '&.Mui-disabled .MuiSlider-thumb': { color: '#db7981' },
+        },
+        track: {
+          color: '#DB4B57',
+        },
+        thumb: {
+          color: '#DB4B57',
+        },
+        rail: { color: '#FFF7DC' },
+      },
+    },
   },
 });
