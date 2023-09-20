@@ -6,6 +6,7 @@ import { ExitAnim } from './createUIAnimation';
 export const CustomButton = ({
   buttonWidth = 15,
   buttonFixed = false,
+  buttonMarginBottom = 0,
   animVariant,
   exitAnim,
   handleClick,
@@ -14,6 +15,7 @@ export const CustomButton = ({
   buttonText: string;
   handleClick: () => void;
   buttonWidth?: number;
+  buttonMarginBottom?: number;
   buttonFixed?: boolean;
   animVariant?: AnimVariant;
   exitAnim?: ExitAnim;
@@ -22,6 +24,8 @@ export const CustomButton = ({
     alignSelf: 'center',
     position: buttonFixed ? 'fixed' : 'relative',
     width: `${buttonWidth}em`,
+    borderRadius: 15,
+    marginBottom: `${buttonMarginBottom}em`,
   }) as typeof Button;
 
   return (
