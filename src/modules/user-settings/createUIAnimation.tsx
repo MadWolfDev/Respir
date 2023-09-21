@@ -1,5 +1,8 @@
 import { AnimVariant } from '../breath-activity/createBreathAnimationVariants';
 
+const BUTTONS_MOVEMENT: number = 3.5; //em
+const SLIDERS_MOVEMENT: number = 100; //vw
+
 export const createButtonsExitAnim = (buttonsNumber: number): ExitAnim[] => {
   const ButtonExitAnim: ExitAnim = {
     y: '2.5em',
@@ -40,7 +43,7 @@ export const createButtonsVariantAnim = (
       ...buttonsAnimVariants[i],
       animate: {
         ...buttonsAnimVariants[i].animate,
-        y: `${-i * 3.5 - 3}em`,
+        y: `${-i * BUTTONS_MOVEMENT - 3}em`,
       },
     };
   }
@@ -49,7 +52,7 @@ export const createButtonsVariantAnim = (
 
 export const createSlidersExitAnim = (slidersNumber: number): ExitAnim[] => {
   const SliderExitAnim: ExitAnim = {
-    x: '0em',
+    x: '0vw',
     transition: { duration: 0.75, delay: 0.25, ease: 'anticipate' },
   };
 
@@ -60,7 +63,7 @@ export const createSlidersExitAnim = (slidersNumber: number): ExitAnim[] => {
   for (let i = 0; i < slidersNumber; i++) {
     slidersExitAnims[i] = {
       ...slidersExitAnims[i],
-      x: `${i % 2 === 0 ? 30 : -30}em`,
+      x: `${i % 2 === 0 ? SLIDERS_MOVEMENT : -SLIDERS_MOVEMENT}vw`,
       transition: { ...slidersExitAnims[i].transition, delay: 0.25 - i * 0.05 },
     };
   }
@@ -72,9 +75,9 @@ export const createSlidersVariantAnim = (
   slidersNumber: number
 ): AnimVariant[] => {
   const SliderAnimVariant: AnimVariant = {
-    initial: { x: '30em' },
+    initial: { x: `${SLIDERS_MOVEMENT}vw` },
     animate: {
-      x: '0em',
+      x: '0vh',
       transition: { duration: 0.75, delay: 0, ease: 'backOut' },
     },
   };
@@ -86,7 +89,7 @@ export const createSlidersVariantAnim = (
   for (let i = 0; i < slidersNumber; i++) {
     slidersAnimVariants[i] = {
       ...slidersAnimVariants[i],
-      initial: { x: `${i % 2 === 0 ? 30 : -30}em` },
+      initial: { x: `${i % 2 === 0 ? SLIDERS_MOVEMENT : -SLIDERS_MOVEMENT}vw` },
       animate: {
         ...slidersAnimVariants[i].animate,
         transition: {
