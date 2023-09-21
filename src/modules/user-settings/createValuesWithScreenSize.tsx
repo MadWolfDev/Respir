@@ -1,5 +1,5 @@
 const REF_SCREEN_HEIGHT: number = 566;
-const REF_SLIDERS_CONTAINER_MARGIN_BOTTOM: number = 40;
+const REF_SLIDERS_CONTAINER_MARGIN_BOTTOM: number = 20;
 const REF_SLIDER_MARGIN_BOTTOM: number = 7;
 const screenHeight: number = window.innerHeight;
 
