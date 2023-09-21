@@ -15,6 +15,8 @@ export enum Display {
   slidersDisplay,
 }
 
+let isAnimating: boolean = false;
+
 export const WelcomeScreen = () => {
   const navigate = useNavigate();
   const [currentDisplay, setCurrentDisplay] = useState<Display>(
@@ -22,11 +24,14 @@ export const WelcomeScreen = () => {
   );
   const handleClickStartAnim = () => navigate(RoutePath.breathAnimationScreen);
   const handleClickBreathModes = () => {
+    if (!isAnimating) {
+      isAnimating = true;
     setCurrentDisplay(
       currentDisplay !== Display.breathModesDisplay
         ? Display.breathModesDisplay
         : Display.slidersDisplay
     );
+    }
   };
   const selectedBreathMode = useBreathModeStore(
     (state) => state.selectedBreathMode
@@ -37,7 +42,10 @@ export const WelcomeScreen = () => {
 
   return (
     <Screen>
-      <AnimatePresence mode={hasToShowBreathmodesDisplay ? 'sync' : 'wait'}>
+      <AnimatePresence
+        onExitComplete={() => (isAnimating = false)}
+        mode={hasToShowBreathmodesDisplay ? 'sync' : 'wait'}
+      >
         {hasToShowBreathmodesDisplay ? (
           <BreathModesScreen
             setCurrentDisplay={setCurrentDisplay}
