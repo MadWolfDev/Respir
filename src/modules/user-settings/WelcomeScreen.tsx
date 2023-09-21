@@ -9,6 +9,7 @@ import { AnimatePresence } from 'framer-motion';
 import { SlidersScreen } from './SlidersScreen';
 import { BreathModesDisplay } from '../../store/BreathModesDisplay.type';
 import { CustomButton } from './CustomButton';
+import { ParameterButton } from './ParameterButton';
 
 export enum Display {
   breathModesDisplay,
@@ -26,11 +27,11 @@ export const WelcomeScreen = () => {
   const handleClickBreathModes = () => {
     if (!isAnimating) {
       isAnimating = true;
-    setCurrentDisplay(
-      currentDisplay !== Display.breathModesDisplay
-        ? Display.breathModesDisplay
-        : Display.slidersDisplay
-    );
+      setCurrentDisplay(
+        currentDisplay !== Display.breathModesDisplay
+          ? Display.breathModesDisplay
+          : Display.slidersDisplay
+      );
     }
   };
   const selectedBreathMode = useBreathModeStore(
@@ -42,6 +43,9 @@ export const WelcomeScreen = () => {
 
   return (
     <Screen>
+      <ParameterButton />
+      <div style={{ flex: 1 }}></div>
+
       <AnimatePresence
         onExitComplete={() => (isAnimating = false)}
         mode={hasToShowBreathmodesDisplay ? 'sync' : 'wait'}
