@@ -28,6 +28,7 @@ export const ReturnButton = ({
     <StyledReturnButton
       variant="contained"
       onClick={handleClick}
+      color="custom"
       variants={ButtonAnimationVariant}
       initial="initial"
       animate="animate"
@@ -44,6 +45,7 @@ const StyledReturnButton = motion(
     alignSelf: 'center',
     width: '10em',
     position: 'fixed',
+    borderRadius: 50,
     zIndex: 3,
   })
 );

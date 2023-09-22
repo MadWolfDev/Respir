@@ -7,8 +7,11 @@ import {
   breathStages,
   useCustomBreathModeStore,
 } from '../../store/customBreathModeStore';
-import { AnimVariant } from '../breath-activity/createBreathAnimationVariants';
-import { ExitAnim } from './BreathModesScreen';
+import {
+  createSlidersExitAnim,
+  createSlidersVariantAnim,
+} from './createUIAnimation';
+import { createMarginBottomSlidersContainerValue } from './createValuesWithScreenSize';
 
 export const SlidersScreen = () => {
   const selectedBreathMode = useBreathModeStore(
@@ -31,44 +34,8 @@ export const SlidersScreen = () => {
   const slidersDisabled: boolean =
     selectedBreathMode === 'custom' ? false : true;
 
-  const SliderAnimVariant: AnimVariant = {
-    initial: { x: '30em' },
-    animate: {
-      x: '0em',
-      transition: { duration: 0.75, delay: 0, ease: 'backOut' },
-    },
-  };
-
-  const SliderExitAnim: ExitAnim = {
-    x: '0em',
-    transition: { duration: 0.75, delay: 0.25, ease: 'anticipate' },
-  };
-
-  const slidersExitAnims: ExitAnim[] = new Array(5);
-  slidersExitAnims.fill(SliderExitAnim);
-  const slidersAnimVariants: AnimVariant[] = new Array(5);
-  slidersAnimVariants.fill(SliderAnimVariant);
-
-  for (let i = 0; i < 5; i++) {
-    const xValue: string = `${i % 2 === 0 ? 30 : -30}em`;
-    slidersExitAnims[i] = {
-      ...slidersExitAnims[i],
-      x: xValue,
-      transition: { ...slidersExitAnims[i].transition, delay: 0.25 - i * 0.05 },
-    };
-
-    slidersAnimVariants[i] = {
-      ...slidersAnimVariants[i],
-      initial: { x: xValue },
-      animate: {
-        ...slidersAnimVariants[i].animate,
-        transition: {
-          ...slidersAnimVariants[i].animate.transition,
-          delay: i * 0.05,
-        },
-      },
-    };
-  }
+  const slidersExitAnims = createSlidersExitAnim(5);
+  const slidersAnimVariants = createSlidersVariantAnim(5);
 
   return (
     <GlobalContainer>
@@ -129,7 +96,6 @@ export const SlidersScreen = () => {
 const GlobalContainer = styled(motion.div)({
   display: 'flex',
   flexDirection: 'column',
-  alignItems: 'space-between',
-  flex: 1,
   overflow: 'hidden',
+  marginBottom: `${createMarginBottomSlidersContainerValue()}px`,
 });

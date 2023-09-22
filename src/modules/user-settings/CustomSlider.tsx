@@ -3,7 +3,8 @@ import { Slider, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { AnimVariant } from '../breath-activity/createBreathAnimationVariants';
-import { ExitAnim } from './BreathModesScreen';
+import { ExitAnim } from './createUIAnimation';
+import { createMarginBottomSlidersValue } from './createValuesWithScreenSize';
 
 export const CustomSlider = ({
   sliderInitialValue,
@@ -82,22 +83,21 @@ export const CustomSlider = ({
 const Content = styled.div({
   alignSelf: 'center',
   display: 'flex',
-  gap: '1.5em',
+  gap: '5vw',
 });
 
 const StyledSlider = styled(Slider)({
   alignSelf: 'center',
-  width: '18em',
+  width: '65vw',
 }) as typeof Slider;
 
 const Title = styled(Typography)({
-  marginBottom: '0.5em',
   alignSelf: 'center',
 }) as typeof Typography;
 
 const SliderContainer = styled(motion.div)({
   alignSelf: 'center',
   display: 'flex',
-  marginTop: '2em',
   flexDirection: 'column',
+  marginBottom: `${createMarginBottomSlidersValue()}px`,
 });

@@ -43,34 +43,36 @@ export const BackgroundAnimation = ({
     };
   }
 
-  const renderShampeAnimations = (index: number) => {
-    if (index < shampesNumber) {
-      return (
+  const renderShampeAnimations = (
+    index: number,
+    children?: JSX.Element
+  ): JSX.Element => {
+    return index >= 0 ? (
+      renderShampeAnimations(
+        index - 1,
         <Image
           initial="initial"
           animate="animate"
           variants={shampeAnimVariants[index]}
           url={shampe}
-          onAnimationComplete={handleAnimationComplete}
         >
-          {renderShampeAnimations(index + 1)}
+          {children}
         </Image>
-      );
-    }
-
-    return null;
+      )
+    ) : (
+      <Image
+        variants={mountainsAnimVariant}
+        initial="initial"
+        animate="animate"
+        url={mountains}
+        onAnimationComplete={handleAnimationComplete}
+      >
+        {children}
+      </Image>
+    );
   };
 
-  return (
-    <Image
-      variants={mountainsAnimVariant}
-      initial="initial"
-      animate="animate"
-      url={mountains}
-    >
-      {renderShampeAnimations(0)}
-    </Image>
-  );
+  return renderShampeAnimations(shampesNumber - 1);
 };
 
 const Image = styled(motion.div)<{ url: string }>(({ url }) => ({

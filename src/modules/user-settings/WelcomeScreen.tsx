@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import { Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { RoutePath } from '../../router/RoutePath.type';
 import { Screen } from '../../theme/components/Screen';
@@ -9,11 +8,15 @@ import { BreathModesScreen } from './BreathModesScreen';
 import { AnimatePresence } from 'framer-motion';
 import { SlidersScreen } from './SlidersScreen';
 import { BreathModesDisplay } from '../../store/BreathModesDisplay.type';
+import { CustomButton } from './CustomButton';
+import { ParameterButton } from './ParameterButton';
 
 export enum Display {
   breathModesDisplay,
   slidersDisplay,
 }
+
+let isAnimating: boolean = false;
 
 export const WelcomeScreen = () => {
   const navigate = useNavigate();
@@ -22,11 +25,14 @@ export const WelcomeScreen = () => {
   );
   const handleClickStartAnim = () => navigate(RoutePath.breathAnimationScreen);
   const handleClickBreathModes = () => {
-    setCurrentDisplay(
-      currentDisplay !== Display.breathModesDisplay
-        ? Display.breathModesDisplay
-        : Display.slidersDisplay
-    );
+    if (!isAnimating) {
+      isAnimating = true;
+      setCurrentDisplay(
+        currentDisplay !== Display.breathModesDisplay
+          ? Display.breathModesDisplay
+          : Display.slidersDisplay
+      );
+    }
   };
   const selectedBreathMode = useBreathModeStore(
     (state) => state.selectedBreathMode
@@ -37,7 +43,13 @@ export const WelcomeScreen = () => {
 
   return (
     <Screen>
-      <AnimatePresence mode={hasToShowBreathmodesDisplay ? 'sync' : 'wait'}>
+      <ParameterButton />
+      <div style={{ flex: 1 }}></div>
+
+      <AnimatePresence
+        onExitComplete={() => (isAnimating = false)}
+        mode={hasToShowBreathmodesDisplay ? 'sync' : 'wait'}
+      >
         {hasToShowBreathmodesDisplay ? (
           <BreathModesScreen
             setCurrentDisplay={setCurrentDisplay}
@@ -50,39 +62,24 @@ export const WelcomeScreen = () => {
         )}
       </AnimatePresence>
 
-      <ButtonContainer>
-        <ModesButton
-          variant="contained"
-          onClick={handleClickBreathModes}
-          data-testid="modes-button"
-        >
-          {BreathModesDisplay[selectedBreathMode]}
-        </ModesButton>
-        <StartButton
-          variant="contained"
-          onClick={handleClickStartAnim}
-          data-testid="start-button"
-        >
-          Lancer animation
-        </StartButton>
-      </ButtonContainer>
+      <ButtonsContainer>
+        <CustomButton
+          buttonText={BreathModesDisplay[selectedBreathMode]}
+          handleClick={handleClickBreathModes}
+          buttonMarginBottom={1}
+        />
+        <CustomButton
+          buttonText="Commencer"
+          handleClick={handleClickStartAnim}
+          buttonMarginBottom={1.5}
+          buttonWidth={12}
+        />
+      </ButtonsContainer>
     </Screen>
   );
 };
 
-const ButtonContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: space-between;
-`;
-
-const ModesButton = styled(Button)`
-  margin-bottom: 1em;
-  align-self: center;
-  width: 15em;
-`;
-
-const StartButton = styled(ModesButton)`
-  margin-bottom: 1.5em;
-  width: 12em;
-`;
+const ButtonsContainer = styled.div({
+  display: 'flex',
+  flexDirection: 'column',
+});

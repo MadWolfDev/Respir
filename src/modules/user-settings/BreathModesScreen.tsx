@@ -5,8 +5,11 @@ import { Dispatch, SetStateAction } from 'react';
 import { Display } from './WelcomeScreen';
 import { BreathModes } from '../../store/defaultBreathConfigs';
 import { BreathModesDisplay } from '../../store/BreathModesDisplay.type';
-import { AnimVariant } from '../breath-activity/createBreathAnimationVariants';
 import { CustomButton } from './CustomButton';
+import {
+  createButtonsExitAnim,
+  createButtonsVariantAnim,
+} from './createUIAnimation';
 
 export const BreathModesScreen = ({
   setCurrentDisplay,
@@ -21,39 +24,8 @@ export const BreathModesScreen = ({
     setCurrentDisplay(Display.slidersDisplay);
   };
 
-  const ButtonExitAnim: ExitAnim = {
-    y: '0em',
-    transition: { duration: 0.75, delay: 0, ease: 'anticipate' },
-  };
-
-  const ButtonEnterAnimVariant: AnimVariant = {
-    initial: { y: '2.5em' },
-    animate: {
-      y: '0em',
-      transition: { duration: 0.75, delay: 0.5, ease: 'backOut' },
-    },
-  };
-
-  const ButtonsExitAnims: ExitAnim[] = new Array(5);
-  ButtonsExitAnims.fill(ButtonExitAnim);
-  const ButtonsEnterAnimVariants: AnimVariant[] = new Array(5);
-  ButtonsEnterAnimVariants.fill(ButtonEnterAnimVariant);
-
-  for (let i = 0; i < 5; i++) {
-    ButtonsExitAnims[i] = {
-      ...ButtonsExitAnims[i],
-      y: `${2.5}em`,
-      transition: { ...ButtonsExitAnims[i].transition, delay: i * 0.05 },
-    };
-
-    ButtonsEnterAnimVariants[i] = {
-      ...ButtonsEnterAnimVariants[i],
-      animate: {
-        ...ButtonsEnterAnimVariants[i].animate,
-        y: `${-i * 3.5 - 3}em`,
-      },
-    };
-  }
+  const buttonsExitAnims = createButtonsExitAnim(5);
+  const buttonsAnimVariants = createButtonsVariantAnim(5);
 
   return (
     <ButtonContainer data-testid="mode-buttons">
@@ -61,40 +33,40 @@ export const BreathModesScreen = ({
         buttonText={BreathModesDisplay.custom}
         handleClick={() => changeBreathMode('custom')}
         buttonFixed={true}
-        animVariant={ButtonsEnterAnimVariants[4]}
-        exitAnim={ButtonsExitAnims[4]}
+        animVariant={buttonsAnimVariants[4]}
+        exitAnim={buttonsExitAnims[4]}
       />
 
       <CustomButton
         buttonText={BreathModesDisplay.square}
         handleClick={() => changeBreathMode('square')}
         buttonFixed={true}
-        animVariant={ButtonsEnterAnimVariants[3]}
-        exitAnim={ButtonsExitAnims[3]}
+        animVariant={buttonsAnimVariants[3]}
+        exitAnim={buttonsExitAnims[3]}
       />
 
       <CustomButton
         buttonText={BreathModesDisplay.relaxation}
         handleClick={() => changeBreathMode('relaxation')}
         buttonFixed={true}
-        animVariant={ButtonsEnterAnimVariants[2]}
-        exitAnim={ButtonsExitAnims[2]}
+        animVariant={buttonsAnimVariants[2]}
+        exitAnim={buttonsExitAnims[2]}
       />
 
       <CustomButton
         buttonText={BreathModesDisplay.vitality}
         handleClick={() => changeBreathMode('vitality')}
         buttonFixed={true}
-        animVariant={ButtonsEnterAnimVariants[1]}
-        exitAnim={ButtonsExitAnims[1]}
+        animVariant={buttonsAnimVariants[1]}
+        exitAnim={buttonsExitAnims[1]}
       />
 
       <CustomButton
         buttonText={BreathModesDisplay.heartCoherence}
         handleClick={() => changeBreathMode('heartCoherence')}
         buttonFixed={true}
-        animVariant={ButtonsEnterAnimVariants[0]}
-        exitAnim={ButtonsExitAnims[0]}
+        animVariant={buttonsAnimVariants[0]}
+        exitAnim={buttonsExitAnims[0]}
       />
     </ButtonContainer>
   );
@@ -104,9 +76,3 @@ const ButtonContainer = styled(motion.div)({
   display: 'flex',
   flexDirection: 'column-reverse',
 });
-
-export type ExitAnim = {
-  y?: string;
-  x?: string;
-  transition: { duration: number; delay?: number; ease?: string };
-};
