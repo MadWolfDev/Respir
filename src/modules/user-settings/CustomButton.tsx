@@ -33,11 +33,14 @@ export const CustomButton = ({
       variant="contained"
       color="custom"
       component={motion.div}
+      whileTap={{ scale: 0.95 }}
       initial="initial"
       animate="animate"
       variants={animVariant}
       exit={exitAnim}
       onClick={handleClick}
+      disableElevation
+      disableRipple
     >
       {buttonText}
     </StyledButton>

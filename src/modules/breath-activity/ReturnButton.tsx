@@ -25,27 +25,34 @@ export const ReturnButton = ({
   };
 
   return !buttonDisabled ? (
-    <StyledReturnButton
-      variant="contained"
-      onClick={handleClick}
-      color="custom"
-      variants={ButtonAnimationVariant}
-      initial="initial"
-      animate="animate"
-      onAnimationComplete={removeButton}
-    >
-      Retour
-    </StyledReturnButton>
+    <Container whileTap={{ scale: 0.95 }}>
+      <StyledReturnButton
+        variant="contained"
+        onClick={handleClick}
+        color="custom"
+        variants={ButtonAnimationVariant}
+        initial="initial"
+        animate="animate"
+        onAnimationComplete={removeButton}
+        disableElevation
+        disableRipple
+      >
+        Retour
+      </StyledReturnButton>
+    </Container>
   ) : null;
 };
 
+const Container = styled(motion.div)({
+  marginBottom: '1.5em',
+  alignSelf: 'center',
+  textAlign: 'center',
+  zIndex: 3,
+});
+
 const StyledReturnButton = motion(
   styled(Button)({
-    marginBottom: '1.5em',
-    alignSelf: 'center',
-    width: '10em',
-    position: 'fixed',
+    width: '35vw',
     borderRadius: 50,
-    zIndex: 3,
   })
 );
