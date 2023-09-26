@@ -44,8 +44,6 @@ export const WelcomeScreen = () => {
   return (
     <Screen>
       <ParameterButton />
-      <div style={{ flex: 1 }}></div>
-
       <AnimatePresence
         onExitComplete={() => (isAnimating = false)}
         mode={hasToShowBreathmodesDisplay ? 'sync' : 'wait'}
@@ -72,7 +70,7 @@ export const WelcomeScreen = () => {
           buttonText="Commencer"
           handleClick={handleClickStartAnim}
           buttonMarginBottom={1.5}
-          buttonWidth={12}
+          buttonWidth={45}
         />
       </ButtonsContainer>
     </Screen>

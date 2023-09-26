@@ -4,7 +4,7 @@ import { AnimVariant } from '../breath-activity/createBreathAnimationVariants';
 import { ExitAnim } from './createUIAnimation';
 
 export const CustomButton = ({
-  buttonWidth = 15,
+  buttonWidth = 60,
   buttonFixed = false,
   buttonMarginBottom = 0,
   animVariant,
@@ -23,7 +23,7 @@ export const CustomButton = ({
   const StyledButton = styled(Button)({
     alignSelf: 'center',
     position: buttonFixed ? 'fixed' : 'relative',
-    width: `${buttonWidth}em`,
+    width: `${buttonWidth}vw`,
     borderRadius: 15,
     marginBottom: `${buttonMarginBottom}em`,
   }) as typeof Button;
