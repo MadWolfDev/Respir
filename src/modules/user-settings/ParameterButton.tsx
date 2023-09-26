@@ -1,16 +1,24 @@
-import { styled } from '@mui/material';
-import parameterIcon from '../../data/images/Parameter-Icon.png';
+import { IconButton, styled } from '@mui/material';
+import { Settings } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 
 export const ParameterButton = () => {
-  return <Icon onClick={() => console.log('meh')} whileTap={{ scale: 0.7 }} />;
+  return (
+    <Container whileTap={{ scale: 0.9 }}>
+      <StyledIconButton disableRipple color="custom">
+        <Settings fontSize="large" />
+      </StyledIconButton>
+    </Container>
+  );
 };
 
-const Icon = styled(motion.div)({
-  backgroundImage: `url(${parameterIcon})`,
-  width: '17.5%',
-  height: '10%',
-  backgroundRepeat: 'no-repeat',
-  backgroundSize: 'cover',
+const Container = styled(motion.div)({
   alignSelf: 'end',
+  display: 'flex',
+  flex: 1,
+});
+
+const StyledIconButton = styled(IconButton)({
+  width: '50px',
+  height: '50px',
 });
