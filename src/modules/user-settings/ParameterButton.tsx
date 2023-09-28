@@ -4,8 +4,8 @@ import { motion } from 'framer-motion';
 
 export const ParameterButton = () => {
   return (
-    <Container whileTap={{ scale: 0.9 }}>
-      <StyledIconButton disableRipple color="custom">
+    <Container>
+      <StyledIconButton disableRipple color="custom" whileTap={{ scale: 0.9 }}>
         <Settings fontSize="large" />
       </StyledIconButton>
     </Container>
@@ -18,7 +18,9 @@ const Container = styled(motion.div)({
   flex: 1,
 });
 
-const StyledIconButton = styled(IconButton)({
-  width: '50px',
-  height: '50px',
-});
+const StyledIconButton = motion(
+  styled(IconButton)({
+    width: '50px',
+    height: '50px',
+  })
+);
