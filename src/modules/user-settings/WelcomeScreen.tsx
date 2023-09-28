@@ -10,6 +10,7 @@ import { SlidersScreen } from './SlidersScreen';
 import { BreathModesDisplay } from '../../store/BreathModesDisplay.type';
 import { CustomButton } from './CustomButton';
 import { ParameterButton } from './ParameterButton';
+import { createButtonWidth } from './createValuesWithScreenSize';
 
 export enum Display {
   breathModesDisplay,
@@ -70,7 +71,10 @@ export const WelcomeScreen = () => {
           buttonText="Commencer"
           handleClick={handleClickStartAnim}
           buttonMarginBottom={1.5}
-          buttonWidth={45}
+          buttonWidth={createButtonWidth({
+            targetWidth: 45,
+            buttonSize: 'small',
+          })}
         />
       </ButtonsContainer>
     </Screen>

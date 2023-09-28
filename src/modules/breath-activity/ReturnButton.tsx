@@ -2,6 +2,7 @@ import { AnimVariant } from './createBreathAnimationVariants';
 import { motion } from 'framer-motion';
 import { Button, styled } from '@mui/material';
 import { Dispatch, SetStateAction } from 'react';
+import { createButtonWidth } from '../user-settings/createValuesWithScreenSize';
 
 export const ReturnButton = ({
   handleClick,
@@ -52,7 +53,7 @@ const Container = styled(motion.div)({
 
 const StyledReturnButton = motion(
   styled(Button)({
-    width: '35vw',
+    width: `${createButtonWidth({ targetWidth: 35, buttonSize: 'small' })}vw`,
     borderRadius: 50,
   })
 );

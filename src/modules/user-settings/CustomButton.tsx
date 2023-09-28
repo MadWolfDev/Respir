@@ -2,9 +2,10 @@ import { Button, styled } from '@mui/material';
 import { motion } from 'framer-motion';
 import { AnimVariant } from '../breath-activity/createBreathAnimationVariants';
 import { ExitAnim } from './createUIAnimation';
+import { createButtonWidth } from './createValuesWithScreenSize';
 
 export const CustomButton = ({
-  buttonWidth = 60,
+  buttonWidth = createButtonWidth({ targetWidth: 60 }),
   buttonFixed = false,
   buttonMarginBottom = 0,
   animVariant,
