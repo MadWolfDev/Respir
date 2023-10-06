@@ -9,7 +9,7 @@ import { AnimatePresence } from 'framer-motion';
 import { SlidersScreen } from './SlidersScreen';
 import { BreathModesDisplay } from '../../store/BreathModesDisplay.type';
 import { CustomButton } from './CustomButton';
-import { ParameterButton } from './ParameterButton';
+import { SettingsIcon } from './SettingsIcon';
 import { createButtonWidth } from './createValuesWithScreenSize';
 
 export enum Display {
@@ -44,7 +44,7 @@ export const WelcomeScreen = () => {
 
   return (
     <Screen>
-      <ParameterButton />
+      <SettingsIcon />
       <AnimatePresence
         onExitComplete={() => (isAnimating = false)}
         mode={hasToShowBreathmodesDisplay ? 'sync' : 'wait'}

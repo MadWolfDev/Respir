@@ -1,11 +1,21 @@
 import { IconButton, styled } from '@mui/material';
 import { Settings } from '@mui/icons-material';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
+import { RoutePath } from '../../router/RoutePath.type';
 
-export const ParameterButton = () => {
+export const SettingsIcon = () => {
+  const navigate = useNavigate();
+  const handleClick = () => navigate(RoutePath.settingsScreen);
+
   return (
     <Container>
-      <StyledIconButton disableRipple color="custom" whileTap={{ scale: 0.9 }}>
+      <StyledIconButton
+        disableRipple
+        color="custom"
+        whileTap={{ scale: 0.9 }}
+        onClick={handleClick}
+      >
         <Settings fontSize="large" />
       </StyledIconButton>
     </Container>
