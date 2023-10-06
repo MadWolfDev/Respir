@@ -5,7 +5,7 @@ const SLIDERS_MOVEMENT: number = 100; //vw
 
 export const createButtonsExitAnim = (buttonsNumber: number): ExitAnim[] => {
   const ButtonExitAnim: ExitAnim = {
-    y: '2.5em',
+    y: '2.6em',
     transition: { duration: 0.75, delay: 0, ease: 'anticipate' },
   };
 
@@ -27,7 +27,7 @@ export const createButtonsVariantAnim = (
   buttonsNumber: number
 ): AnimVariant[] => {
   const ButtonAnimVariant: AnimVariant = {
-    initial: { y: '2.5em' },
+    initial: { y: '2.6em' },
     animate: {
       y: '0em',
       transition: { duration: 0.75, delay: 0.3, ease: 'backOut' },

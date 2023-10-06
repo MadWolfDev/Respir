@@ -1,8 +1,8 @@
 import { styled } from '@mui/material';
 import { AnimVariant } from './createBreathAnimationVariants';
 import { motion } from 'framer-motion';
-import mountains from '../../data/images/Mountains.svg';
-import shampe from '../../data/images/Shampe_Mstr.svg';
+import mountains from '../../data/images/Mountains.png';
+import shampe from '../../data/images/Shampe_Mstr.png';
 
 export const BackgroundAnimation = ({
   mountainsAnimVariant,
