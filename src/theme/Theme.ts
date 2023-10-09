@@ -15,8 +15,12 @@ export const theme = createTheme({
     },
   },
   palette: {
-    custom: {
+    enable: {
       main: '#DB4B57',
+      contrastText: '#FFEFF2',
+    },
+    disable: {
+      main: '#DB7981',
       contrastText: '#FFEFF2',
     },
   },
@@ -32,8 +36,8 @@ export const theme = createTheme({
     MuiSlider: {
       styleOverrides: {
         root: {
-          '&.Mui-disabled .MuiSlider-track': { color: '#db7981' },
-          '&.Mui-disabled .MuiSlider-thumb': { color: '#db7981' },
+          '&.Mui-disabled .MuiSlider-track': { color: '#DB7981' },
+          '&.Mui-disabled .MuiSlider-thumb': { color: '#DB7981' },
         },
         track: {
           color: '#DB4B57',

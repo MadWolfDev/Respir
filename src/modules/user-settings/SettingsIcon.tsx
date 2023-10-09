@@ -12,7 +12,7 @@ export const SettingsIcon = () => {
     <Container>
       <StyledIconButton
         disableRipple
-        color="custom"
+        color="enable"
         whileTap={{ scale: 0.9 }}
         onClick={handleClick}
       >

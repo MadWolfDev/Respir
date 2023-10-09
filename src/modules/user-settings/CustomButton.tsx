@@ -32,7 +32,7 @@ export const CustomButton = ({
   return (
     <StyledButton
       variant="contained"
-      color="custom"
+      color="enable"
       component={motion.div}
       whileTap={{ scale: 0.95 }}
       initial="initial"

@@ -6,18 +6,20 @@ declare module '@mui/material/styles' {
   }
 
   interface PaletteOptions {
-    custom?: PaletteOptions['primary'];
+    enable?: PaletteOptions['primary'];
+    disable?: PaletteOptions['primary'];
   }
 }
 
 declare module '@mui/material/Button' {
   interface ButtonPropsColorOverrides {
-    custom: true;
+    enable: true;
+    disable: true;
   }
 }
 
 declare module '@mui/material/IconButton' {
   interface IconButtonPropsColorOverrides {
-    custom: true;
+    enable: true;
   }
 }
