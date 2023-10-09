@@ -3,6 +3,17 @@ import { AnimVariant } from '../breath-activity/createBreathAnimationVariants';
 const BUTTONS_MOVEMENT: number = 3.5; //em
 const SLIDERS_MOVEMENT: number = 100; //vw
 
+// @todo ce fichier fait un peu fourre tout. 
+// J'aurais plutôt fait un truc comme ça dans l'arboresence de fichier pour que ce soit plus facile de retrouver les choses par thématique
+// user-settings
+// |_ button
+//    |_ createButtonsExitAnim
+//    |_ createButtonsVariantAnim
+//    |_ CustomButton
+// |_ slider
+//    |_ createSlidersExitAnim
+//    |_ createSlidersVariantAnim
+//    |_ CustomSlider
 export const createButtonsExitAnim = (buttonsNumber: number): ExitAnim[] => {
   const ButtonExitAnim: ExitAnim = {
     y: '2.6em',

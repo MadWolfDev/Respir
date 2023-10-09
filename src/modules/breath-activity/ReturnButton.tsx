@@ -45,15 +45,18 @@ export const ReturnButton = ({
 };
 
 const Container = styled(motion.div)({
+    //@todo utiliser le theme pour définir les espacements. L'idée c'est d'avoir des espacements cohérents dans l'application
   marginBottom: '1.5em',
   alignSelf: 'center',
   textAlign: 'center',
+  //@todo documenter les z-index avec un shéma dans un readme et justifier leur utilisation
   zIndex: 3,
 });
 
 const StyledReturnButton = motion(
   styled(Button)({
     width: `${createButtonWidth({ targetWidth: 35, buttonSize: 'small' })}vw`,
+    //@todo utiliser le theme pour définir le radius
     borderRadius: 50,
   })
 );

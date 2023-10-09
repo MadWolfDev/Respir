@@ -41,12 +41,15 @@ export const BreathAnimationScreen = () => {
     };
   }, []);
 
+  //@todo calculer via deux useMemo les valeurs hasBlockedInPhase et hasBlockedOutPhase
+
   return (
     <Screen>
       <BackgroundAnimation
         mountainsAnimVariant={breathAnimationVariants.mountainsAnimation}
         shampeAnimVariant={breathAnimationVariants.defaultShampeAnimation}
         shampesNumber={6}
+        //@todo utiliser hasBlockedInPhase et hasBlockOutPhase
         hasBlockInAnim={selectedBreathConfig.blockInDuration > 0 ? true : false}
         hasBlockOutAnim={
           selectedBreathConfig.blockOutDuration > 0 ? true : false
@@ -54,14 +57,17 @@ export const BreathAnimationScreen = () => {
         handleAnimationComplete={backToWelcomeScreen}
       />
 
+      {/* @todo utiliser hasBlockedInPhase  */}
       {selectedBreathConfig.blockInDuration > 0 && (
         <TextAnimation
           variant={breathAnimationVariants.blockInTextAnimation}
           content="Maintenez"
+          //@todo documenter les z-index avec un shéma dans un readme et justifier leur utilisation
           zindex={0}
         />
       )}
 
+      {/* @todo utiliser hasBlockedOutPhase  */}
       {selectedBreathConfig.blockOutDuration > 0 && (
         <TextAnimation
           variant={breathAnimationVariants.blockOutTextAnimation}

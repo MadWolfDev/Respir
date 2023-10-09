@@ -1,3 +1,7 @@
+//@todo convertir le fichier en .ts au lieu de .tsx
+
+//@todo faire des tests unitaires de cette fonction géante pour bien illustrer chaque cas d'utilisation de cette fonction (settings relaxation, cohérence, vitalisation, custom...
+//C'est vraiment le coeur du bon fonctionnement de ton animation, tu veux être sur de ne pas avoir de régression là dessus)
 export const createBreathAnimationVariants = ({
   blockIn,
   blockOut,
@@ -33,6 +37,7 @@ export const createBreathAnimationVariants = ({
 
   const blockOutAnimTimes: number[] = Object.assign([], animTimes);
 
+  // @todo extraire le plus 0.025 dans une constante avec un nom explicite pour que l'on comprenne l'utilité de cet ajout
   blockOut > 0 &&
     (blockIn > 0
       ? blockOutAnimTimes.splice(4, 0, animTimes[3] + 0.025)
@@ -40,6 +45,7 @@ export const createBreathAnimationVariants = ({
 
   const repeats: number = Math.ceil((sessionDuration * 60) / animDuration) - 1;
 
+  // @todo tester unitairement et extraire de la fonction parente
   const createCorrectAnimation = (
     animationBehavioursPerTime: string[] | number[]
   ) => {
@@ -162,6 +168,13 @@ export const createBreathAnimationVariants = ({
   };
 };
 
+//@todo add some js-doc here
+
+/**
+ * @times  define time milestones for the animation. At the first milestone, "y" should have reached its first value
+ * @ease
+ */
+
 export type AnimVariant = {
   initial: {
     backgroundPositionY?: string;
@@ -180,6 +193,7 @@ export type AnimVariant = {
       repeat?: number;
       duration?: number;
       ease?: string;
+
       times?: number[];
       delay?: number;
     };

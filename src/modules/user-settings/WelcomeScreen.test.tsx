@@ -42,4 +42,7 @@ describe('WelcomeScreen', () => {
       RoutePath.breathAnimationScreen
     );
   });
+
+  it.todo('should display disabled sliders when default mode is selected');
+  it.todo('should display enabled sliders when custom mode is selected');
 });
