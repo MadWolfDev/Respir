@@ -10,6 +10,10 @@ export const theme = createTheme({
       color: '#FFEFF2',
     },
     h2: {
+      fontSize: '1.8em',
+      color: '#FFEFF2',
+    },
+    h3: {
       fontSize: '1.4em',
       color: '#FFEFF2',
     },

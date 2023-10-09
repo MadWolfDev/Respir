@@ -63,7 +63,7 @@ export const CustomSlider = ({
       variants={animVariant}
       exit={exitAnim}
     >
-      <Title variant="h2">{title}</Title>
+      <Title variant="h3">{title}</Title>
       <Content>
         <StyledSlider
           defaultValue={calculateValue(sliderInitialValue, true)}
@@ -74,7 +74,7 @@ export const CustomSlider = ({
           disabled={disabled}
           key={`slider-${sliderInitialValue}`}
         />
-        <Typography variant="h2">{displayValue(sliderValue)}</Typography>
+        <Typography variant="h3">{displayValue(sliderValue)}</Typography>
       </Content>
     </SliderContainer>
   );
