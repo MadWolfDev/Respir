@@ -3365,6 +3365,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/react-sound@npm:^1":
+  version: 1.2.4
+  resolution: "@types/react-sound@npm:1.2.4"
+  dependencies:
+    "@types/react": "*"
+  checksum: 5cb8a795754d319777f864fd0af77213064b3b7010cc47b864ca6a2c5b0479b29d0e21e1df6a86bc80e759f7a49bbf0e0af53c018d6df520e90e74477e9a1846
+  languageName: node
+  linkType: hard
+
 "@types/react-transition-group@npm:^4.4.6":
   version: 4.4.6
   resolution: "@types/react-transition-group@npm:4.4.6"
@@ -11220,7 +11229,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.6.2, prop-types@npm:^15.8.1":
+"prop-types@npm:^15.5.7, prop-types@npm:^15.6.2, prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -11531,6 +11540,18 @@ __metadata:
   bin:
     react-scripts: bin/react-scripts.js
   checksum: 92afa2f245c7092ccc97d5609dc7a2130616262e34da7f15072d9442e2d2e1d4909a91022abd1faac1336eb17c5525a10d9bd43e1ae374c7ec941ca20addca68
+  languageName: node
+  linkType: hard
+
+"react-sound@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "react-sound@npm:1.2.0"
+  dependencies:
+    prop-types: ^15.5.7
+    soundmanager2: ^2.97.20170602
+  peerDependencies:
+    react: ^15.3.0 || ^16.0.0-0
+  checksum: f99b2a862656c148238b096be82b5e8ea1f44aae8e5aa38cc40fae63e02786d4a27c8e400e153dad9d7fda0db2baeb3a16bc7415c4056e5b2f3c8df77b229d9e
   languageName: node
   linkType: hard
 
@@ -11875,11 +11896,13 @@ __metadata:
     "@types/node": ^17.0.10
     "@types/react": ^18.0.0
     "@types/react-dom": ^18.0.0
+    "@types/react-sound": ^1
     framer-motion: ^10.13.1
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.14.2
     react-scripts: 5.0.1
+    react-sound: ^1.2.0
     serve: ^14.2.1
     typescript: ^4.4.2
     web-vitals: ^2.1.4
@@ -12379,6 +12402,13 @@ __metadata:
     ip: ^2.0.0
     smart-buffer: ^4.2.0
   checksum: 259d9e3e8e1c9809a7f5c32238c3d4d2a36b39b83851d0f573bfde5f21c4b1288417ce1af06af1452569cd1eb0841169afd4998f0e04ba04656f6b7f0e46d748
+  languageName: node
+  linkType: hard
+
+"soundmanager2@npm:^2.97.20170602":
+  version: 2.97.20170602
+  resolution: "soundmanager2@npm:2.97.20170602"
+  checksum: 141d0d35efa28caec6aa7a65412a9fb2b2f789285ff684959be0e4dc16632e32b94b5eb7a483fcee792286bfb36f4ec7d72200bb582ed52bf644779bcf5c076d
   languageName: node
   linkType: hard
 

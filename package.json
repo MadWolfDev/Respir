@@ -20,6 +20,7 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.14.2",
     "react-scripts": "5.0.1",
+    "react-sound": "^1.2.0",
     "serve": "^14.2.1",
     "typescript": "^4.4.2",
     "web-vitals": "^2.1.4",
@@ -61,5 +62,8 @@
       "last 1 safari version"
     ]
   },
-  "packageManager": "yarn@3.6.1"
+  "packageManager": "yarn@3.6.1",
+  "devDependencies": {
+    "@types/react-sound": "^1"
+  }
 }
