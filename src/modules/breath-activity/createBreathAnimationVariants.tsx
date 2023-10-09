@@ -13,6 +13,8 @@ export const createBreathAnimationVariants = ({
 }): {
   [key: string]: AnimVariant;
 } => {
+  const onMobile: boolean = window.innerWidth < 500;
+
   const breathDurations: number[] = [breathIn, blockIn, breathOut, blockOut];
   const animDuration: number = breathDurations.reduce(
     (duration, total) => (total += duration)
@@ -71,11 +73,11 @@ export const createBreathAnimationVariants = ({
       initial: { backgroundPositionY: '-45vh' },
       animate: {
         backgroundPositionY: createCorrectAnimation([
-          '-45vh',
-          '45vh',
-          '45vh',
-          '-45vh',
-          '-45vh',
+          `-${onMobile ? 45 : 60}vh`,
+          `${onMobile ? 45 : 15}vh`,
+          `${onMobile ? 45 : 15}vh`,
+          `-${onMobile ? 45 : 60}vh`,
+          `-${onMobile ? 45 : 60}vh`,
         ]),
         transition: {
           repeat: repeats,

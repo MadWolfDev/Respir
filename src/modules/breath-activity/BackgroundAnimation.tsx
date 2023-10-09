@@ -3,6 +3,8 @@ import { AnimVariant } from './createBreathAnimationVariants';
 import { motion } from 'framer-motion';
 import mountains from '../../data/images/Mountains.png';
 import shampe from '../../data/images/Shampe_Mstr.png';
+import mountainsPC from '../../data/images/Mountains_PC.png';
+import shampePC from '../../data/images/Shampe_PC.png';
 
 export const BackgroundAnimation = ({
   mountainsAnimVariant,
@@ -21,14 +23,15 @@ export const BackgroundAnimation = ({
 }) => {
   const shampeAnimVariants: AnimVariant[] = new Array(shampesNumber);
   shampeAnimVariants.fill(shampeAnimVariant);
+  const onMobile: boolean = window.innerWidth < 500;
 
   for (let i = 0; i < shampesNumber; i++) {
     const backgroundPositionsY = [
-      '-45vh',
+      `-${onMobile ? 45 : 60}vh`,
       `${100 + 35 * i}vh`,
       `${100 + 35 * i}vh`,
-      '-45vh',
-      '-45vh',
+      `-${onMobile ? 45 : 60}vh`,
+      `-${onMobile ? 45 : 60}vh`,
     ];
 
     !hasBlockOutAnim && backgroundPositionsY.splice(4, 1);
@@ -54,7 +57,7 @@ export const BackgroundAnimation = ({
           initial="initial"
           animate="animate"
           variants={shampeAnimVariants[index]}
-          url={shampe}
+          url={onMobile ? shampe : shampePC}
         >
           {children}
         </Image>
@@ -64,7 +67,7 @@ export const BackgroundAnimation = ({
         variants={mountainsAnimVariant}
         initial="initial"
         animate="animate"
-        url={mountains}
+        url={onMobile ? mountains : mountainsPC}
         onAnimationComplete={handleAnimationComplete}
       >
         {children}
