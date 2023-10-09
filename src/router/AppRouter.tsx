@@ -3,7 +3,7 @@ import { Root } from '../modules/root';
 import { WelcomeScreen } from '../modules/user-settings/WelcomeScreen';
 import { RoutePath } from './RoutePath.type';
 import { BreathAnimationScreen } from '../modules/breath-activity/BreathAnimationScreen';
-import { SettingsScreen } from '../modules/user-settings/SettingsScreen';
+import { SettingsScreen } from '../modules/user-settings/settings-screen/SettingsScreen';
 
 export const AppRouter = createBrowserRouter([
   {
