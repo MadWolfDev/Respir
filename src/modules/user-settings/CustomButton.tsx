@@ -25,7 +25,11 @@ export const CustomButton = ({
     alignSelf: 'center',
     position: buttonFixed ? 'fixed' : 'relative',
     width: `${buttonWidth}vw`,
+    // @todo utiliser le thème pour cette valeur
     borderRadius: 15,
+    // @todo la margin doit toujours être géré par le parent, idéalement à l'aide d'un composant spacer. Là tu as le risque d'avoir des comportements incompréhensibles.
+    // https://www.bam.tech/article/standardising-empty-space-in-jsx-with-styled-components
+    // idéalement ton spacer se base sur des valeurs d'espacement du thème pour assurer la consistance de l'app
     marginBottom: `${buttonMarginBottom}em`,
   }) as typeof Button;
 

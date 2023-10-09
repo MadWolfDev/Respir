@@ -46,7 +46,9 @@ export const BackgroundAnimation = ({
     };
   }
 
+  //@todo extraire cette fonction au dessus du composant
   const renderShampeAnimations = (
+    //@todo index c'est pas très parlant. Certes tu itères sur un tableau de shampe mais peut-être qu'on pourrait plutôt nommer ça shampeLeftToRender ou un truc du genre
     index: number,
     children?: JSX.Element
   ): JSX.Element => {

@@ -13,6 +13,9 @@ import {
 } from './createUIAnimation';
 import { createMarginBottomSlidersContainerValue } from './createValuesWithScreenSize';
 
+//@todo renommer pour un nom plus parlant. C'est un écran qui permet de configurer une respiration customisée. CustomModeConfigurationScreen ?
+
+// @todo tester le comportement de l'écran quand on slide un slider
 export const SlidersScreen = () => {
   const selectedBreathMode = useBreathModeStore(
     (state) => state.selectedBreathMode

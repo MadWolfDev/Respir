@@ -83,16 +83,20 @@ export const CustomSlider = ({
 const Content = styled.div({
   alignSelf: 'center',
   display: 'flex',
+  // @todo idéalement cette valeur vient du theme
   gap: '5vw',
 });
 
 const StyledSlider = styled(Slider)({
   alignSelf: 'center',
+  // @todo idéalement cette valeur vient du theme
   width: '65vw',
+  //@todo regarder pour enlever le as typeof
 }) as typeof Slider;
 
 const Title = styled(Typography)({
   alignSelf: 'center',
+  //@todo regarder pour enlever le as typeof
 }) as typeof Typography;
 
 const SliderContainer = styled(motion.div)({
