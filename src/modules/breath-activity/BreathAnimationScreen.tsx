@@ -9,10 +9,18 @@ import { ReturnButton } from './ReturnButton';
 import { useEffect, useState } from 'react';
 import { TextAnimation } from './TextAnimation';
 import { BackgroundAnimation } from './BackgroundAnimation';
+import { useMusicStore } from '../../store/musicStore';
 
 export const BreathAnimationScreen = () => {
   const navigate = useNavigate();
-  const backToWelcomeScreen = () => navigate(RoutePath.welcomeScreen);
+  const updateMusicStatus = useMusicStore((state) => state.updateMusicStatus);
+
+  const backToWelcomeScreen = () => {
+    navigate(RoutePath.welcomeScreen);
+    updateMusicStatus('STOPPED');
+  };
+  //Called wether the return button is clicked or the background animation is complete
+
   const [returnButtonDisabled, setReturnButtonDisabled] =
     useState<boolean>(false);
 

@@ -11,6 +11,7 @@ import { BreathModesDisplay } from '../../store/BreathModesDisplay.type';
 import { CustomButton } from './CustomButton';
 import { SettingsIcon } from './SettingsIcon';
 import { createButtonWidth } from './createValuesWithScreenSize';
+import { useMusicStore } from '../../store/musicStore';
 
 export enum Display {
   breathModesDisplay,
@@ -24,7 +25,11 @@ export const WelcomeScreen = () => {
   const [currentDisplay, setCurrentDisplay] = useState<Display>(
     Display.slidersDisplay
   );
-  const handleClickStartAnim = () => navigate(RoutePath.breathAnimationScreen);
+  const updateMusicStatus = useMusicStore((state) => state.updateMusicStatus);
+  const handleClickStartAnim = () => {
+    navigate(RoutePath.breathAnimationScreen);
+    updateMusicStatus('PLAYING');
+  };
   const handleClickBreathModes = () => {
     if (!isAnimating) {
       isAnimating = true;
