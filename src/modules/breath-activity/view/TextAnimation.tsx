@@ -23,7 +23,6 @@ export const TextAnimation = ({
   );
 };
 
-//@todo documenter l'usage des zindex
 const TextContentAnim = styled(motion.div)<{ zindex?: number }>(
   ({ zindex = 2 }) => ({
     alignSelf: 'center',

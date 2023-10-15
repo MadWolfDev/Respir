@@ -51,7 +51,6 @@ export const ReturnButton = ({ handleClick }: { handleClick: () => void }) => {
 const Container = styled(motion.div)({
   alignSelf: 'center',
   textAlign: 'center',
-  //@todo documenter les z-index avec un shéma dans un readme et justifier leur utilisation
   zIndex: 3,
 });
 

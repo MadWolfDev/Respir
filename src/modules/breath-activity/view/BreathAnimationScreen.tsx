@@ -65,7 +65,6 @@ export const BreathAnimationScreen = () => {
         <TextAnimation
           variant={breathAnimationVariants.blockInTextAnimation}
           content="Maintenez"
-          //@todo documenter les z-index avec un shéma dans un readme et justifier leur utilisation
           zindex={0}
         />
       )}
