@@ -1,9 +1,9 @@
 import { createBrowserRouter } from 'react-router-dom';
 import { Root } from '../modules/root';
-import { WelcomeScreen } from '../modules/user-settings/WelcomeScreen';
+import { WelcomeScreen } from '../modules/breath-settings/view/WelcomeScreen';
 import { RoutePath } from './RoutePath.type';
-import { BreathAnimationScreen } from '../modules/breath-activity/BreathAnimationScreen';
-import { SettingsScreen } from '../modules/user-settings/settings-screen/SettingsScreen';
+import { BreathAnimationScreen } from '../modules/breath-activity/view/BreathAnimationScreen';
+import { SettingsScreen } from '../modules/user-settings/view/SettingsScreen';
 
 export const AppRouter = createBrowserRouter([
   {

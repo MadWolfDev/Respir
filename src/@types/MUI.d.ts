@@ -23,3 +23,9 @@ declare module '@mui/material/IconButton' {
     enable: true;
   }
 }
+
+declare module '@mui/material/Checkbox' {
+  interface CheckboxPropsColorOverrides {
+    enable: true;
+  }
+}
