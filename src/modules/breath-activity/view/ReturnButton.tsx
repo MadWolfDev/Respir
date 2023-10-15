@@ -1,7 +1,7 @@
 import { AnimVariant } from '../domain/createBreathAnimationVariants';
 import { motion } from 'framer-motion';
 import { Button, styled } from '@mui/material';
-import { Dispatch, SetStateAction, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { createButtonWidth } from '../../../libs/design-system/createValuesWithScreenSize';
 import { Spacer } from '../../../libs/design-system/Spacer';
 
