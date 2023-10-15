@@ -8,10 +8,6 @@ import { ReturnButton } from './ReturnButton';
 import { TextAnimation } from './TextAnimation';
 import { BackgroundAnimation } from './BackgroundAnimation';
 import { useMusicStore } from '../../user-settings/domain/musicStore';
-import {
-  BreathStageSoundEffect,
-  clearIntervals,
-} from './BreathStageSoundEffect';
 import { createBreathAnimationVariants } from '../domain/createBreathAnimationVariants';
 
 export const BreathAnimationScreen = () => {
@@ -21,7 +17,6 @@ export const BreathAnimationScreen = () => {
   //Called wether the return button is clicked or the background animation is complete
   const backToWelcomeScreen = () => {
     navigate(RoutePath.welcomeScreen);
-    clearIntervals();
     updateMusicStatus('STOPPED');
   };
 
@@ -51,7 +46,6 @@ export const BreathAnimationScreen = () => {
 
   return (
     <Screen>
-      {/* <BreathStageSoundEffect breathConfig={selectedBreathConfig} /> */}
       <BackgroundAnimation
         mountainsAnimVariant={breathAnimationVariants.mountainsAnimation}
         shampeAnimVariant={breathAnimationVariants.defaultShampeAnimation}

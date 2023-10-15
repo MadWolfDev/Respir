@@ -4,7 +4,6 @@ import { MusicSelection } from './MusicSelection';
 import styled from '@emotion/styled';
 import { RoutePath } from '../../../router/RoutePath.type';
 import { MusicVolume } from './MusicVolume';
-import { AnimationSoundEffectCheckBox } from './AnimationSoundEffectCheckBox';
 import { Spacer } from '../../../libs/design-system/Spacer';
 import {
   createButtonWidth,
@@ -23,7 +22,6 @@ export const SettingsScreen = () => {
         <Spacer direction="VERTICAL" spacingFactor={1} />
         <MusicVolume />
         <Spacer direction="VERTICAL" spacingFactor={1} />
-        <AnimationSoundEffectCheckBox />
       </Content>
       <CustomButton
         buttonText="Valider"
