@@ -1,5 +1,4 @@
 import { Button, styled } from '@mui/material';
-import { createButtonWidth } from '../../../libs/design-system/createValuesWithScreenSize';
 import { motion } from 'framer-motion';
 
 export const TextButton = ({
@@ -31,8 +30,8 @@ export const TextButton = ({
 
 const StyledButton = motion(
   styled(Button)({
-    width: '100%',
-    marginLeft: '0vw',
+    alignSelf: 'center',
+    width: '80%',
     textTransform: 'unset',
     fontSize: '1.1em',
   })
