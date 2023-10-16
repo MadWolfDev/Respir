@@ -1,6 +1,7 @@
 {
   "short_name": "Respir",
   "name": "Respir'",
+  "orientation": "any",
   "icons": [
     {
       "src": "favicon.ico",
