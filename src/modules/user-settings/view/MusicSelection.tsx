@@ -21,22 +21,22 @@ export const MusicSelection = () => {
       </HorizontalContainer>
 
       <TextButton
-        buttonText="Relaxation Zen Détente Absolue"
+        buttonText="Relaxation zen détente absolue"
         isEnable={selectedMusic === 1}
         handleClick={() => handleMusicButtonClick(1)}
       />
       <TextButton
-        buttonText="Ouverture Totale Des Chakras"
+        buttonText="Ouverture totale des chakras"
         isEnable={selectedMusic === 2}
         handleClick={() => handleMusicButtonClick(2)}
       />
       <TextButton
-        buttonText="Balade Dans La Forêt Enchantée"
+        buttonText="Balade dans la forêt enchantée"
         isEnable={selectedMusic === 3}
         handleClick={() => handleMusicButtonClick(3)}
       />
       <TextButton
-        buttonText="Erreur De Casting"
+        buttonText="Erreur de casting"
         isEnable={selectedMusic === 4}
         handleClick={() => handleMusicButtonClick(4)}
       />
