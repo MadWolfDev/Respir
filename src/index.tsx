@@ -12,6 +12,7 @@ import '@fontsource/roboto/700.css';
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+document.documentElement.requestFullscreen();
 root.render(
   <React.StrictMode>
     <App />
