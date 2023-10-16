@@ -1,7 +1,3 @@
-//@todo faire des tests unitaires de cette fonction géante pour bien illustrer chaque cas d'utilisation de cette fonction (settings relaxation, cohérence, vitalisation, custom...
-//C'est vraiment le coeur du bon fonctionnement de ton animation, tu veux être sur de ne pas avoir de régression là dessus)
-
-// @todo tester unitairement
 export const createCorrectAnimation = (
   animationBehavioursPerTime: string[] | number[],
   blockOut: number,
