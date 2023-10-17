@@ -26,7 +26,7 @@ export const BreathModesScreen = ({
   const buttonsAnimVariants = createButtonsVariantAnim(5);
 
   return (
-    <ButtonContainer data-testid="mode-buttons">
+    <ButtonContainer>
       <CustomButton
         buttonText={BreathModesDisplay.custom}
         handleClick={() => changeBreathMode('custom')}

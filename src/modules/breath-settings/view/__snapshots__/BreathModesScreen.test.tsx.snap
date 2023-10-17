@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BreathModesScreen should display all the buttons 1`] = `
+<body>
+  <div>
+    <div
+      class="css-1v3870x"
+    >
+      <div
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedEnable MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedEnable MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-pbsuc8-MuiButtonBase-root-MuiButton-root"
+        role="button"
+        style="transform: translateY(36.5px) translateZ(0);"
+        tabindex="0"
+      >
+        Personnalisé
+      </div>
+      <div
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedEnable MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedEnable MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-pbsuc8-MuiButtonBase-root-MuiButton-root"
+        role="button"
+        style="transform: translateY(36.5px) translateZ(0);"
+        tabindex="0"
+      >
+        Respiration carrée
+      </div>
+      <div
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedEnable MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedEnable MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-pbsuc8-MuiButtonBase-root-MuiButton-root"
+        role="button"
+        style="transform: translateY(36.5px) translateZ(0);"
+        tabindex="0"
+      >
+        Respiration détente
+      </div>
+      <div
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedEnable MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedEnable MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-pbsuc8-MuiButtonBase-root-MuiButton-root"
+        role="button"
+        style="transform: translateY(36.5px) translateZ(0);"
+        tabindex="0"
+      >
+        Respiration vitalité
+      </div>
+      <div
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedEnable MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedEnable MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-pbsuc8-MuiButtonBase-root-MuiButton-root"
+        role="button"
+        style="transform: translateY(36.5px) translateZ(0);"
+        tabindex="0"
+      >
+        Cohérence cardiaque
+      </div>
+    </div>
+  </div>
+</body>
+`;
