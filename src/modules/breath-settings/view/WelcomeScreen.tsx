@@ -21,6 +21,14 @@ export enum Display {
 
 let isAnimating: boolean = false;
 
+/**
+ * @deprecated this should be used for testing only as there is no way to end an animation in test with framer motion
+ * https://github.com/framer/motion/issues/1690
+ *  */
+export const setIsAnimating = (value: boolean) => {
+  isAnimating = value;
+};
+
 export const WelcomeScreen = () => {
   const navigate = useNavigate();
   const [currentDisplay, setCurrentDisplay] = useState<Display>(
