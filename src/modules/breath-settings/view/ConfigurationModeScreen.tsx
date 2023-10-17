@@ -10,7 +10,6 @@ import {
 import { createSlidersExitAnim } from './animations/slider/createSlidersExitAnim';
 import { createSlidersVariantAnim } from './animations/slider/createSlidersVariantAnim';
 
-// @todo tester le comportement de l'écran quand on slide un slider
 export const ConfigurationModeScreen = () => {
   const selectedBreathMode = useBreathModeStore(
     (state) => state.selectedBreathMode
