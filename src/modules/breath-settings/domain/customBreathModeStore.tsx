@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
 
 export type BreathConfig = {
   sessionLength: number;
@@ -17,26 +18,33 @@ interface ICustomMode {
   }) => void;
 }
 
-export const useCustomBreathModeStore = create<ICustomMode>()((set, get) => ({
-  breathConfig: {
-    sessionLength: 5,
-    breathInDuration: 5,
-    breathOutDuration: 5,
-    blockInDuration: 0,
-    blockOutDuration: 0,
-  },
-
-  updateBreathConfig: (newBreathStageConfig: {
-    breathStage: breathStages;
-    value: number;
-  }) => {
-    const currentBreathConfig = get().breathConfig;
-
-    set({
+export const useCustomBreathModeStore = create<ICustomMode>()(
+  persist(
+    (set, get) => ({
       breathConfig: {
-        ...currentBreathConfig,
-        [newBreathStageConfig.breathStage]: newBreathStageConfig.value,
+        sessionLength: 5,
+        breathInDuration: 5,
+        breathOutDuration: 5,
+        blockInDuration: 0,
+        blockOutDuration: 0,
       },
-    });
-  },
-}));
+
+      updateBreathConfig: (newBreathStageConfig: {
+        breathStage: breathStages;
+        value: number;
+      }) => {
+        const currentBreathConfig = get().breathConfig;
+
+        set({
+          breathConfig: {
+            ...currentBreathConfig,
+            [newBreathStageConfig.breathStage]: newBreathStageConfig.value,
+          },
+        });
+      },
+    }),
+    {
+      name: 'customBreathMode-storage',
+    }
+  )
+);
