@@ -39,6 +39,12 @@ export const useMusicStore = create<IMusic>()(
     }),
     {
       name: 'music-storage',
+      partialize: (state) =>
+        Object.fromEntries(
+          Object.entries(state).filter(
+            ([key]) => !['musicStatus'].includes(key)
+          )
+        ),
     }
   )
 );
