@@ -66,7 +66,7 @@ export const BreathAnimationScreen = () => {
       {hasBlockedOutPhase && (
         <TextAnimation
           variant={breathAnimationVariants.blockOutTextAnimation}
-          content="Pause"
+          content="Maintien"
         />
       )}
 
