@@ -1,6 +1,11 @@
 import styled from '@emotion/styled';
-import { Outlet, useLocation, useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+import {
+  Outlet,
+  useBeforeUnload,
+  useLocation,
+  useNavigate,
+} from 'react-router-dom';
+import { useCallback, useEffect } from 'react';
 import { RoutePath } from '../router/RoutePath.type';
 import { useMusicStore } from './user-settings/domain/musicStore';
 
@@ -9,14 +14,20 @@ export const Root = () => {
   let location = useLocation();
   const updateMusicStatus = useMusicStore((state) => state.updateMusicStatus);
 
+  const stopMusic = useCallback(
+    () => updateMusicStatus('STOPPED'),
+    [updateMusicStatus]
+  );
+
   useEffect(() => {
     navigate(RoutePath.welcomeScreen);
   }, [navigate]);
 
   useEffect(() => {
-    console.log(location);
-    if (location.pathname !== '/exercice') updateMusicStatus('STOPPED');
-  }, [location]);
+    if (location.pathname !== '/exercice') stopMusic();
+  }, [location, stopMusic]);
+
+  useBeforeUnload(stopMusic);
 
   return (
     <AppContent>
