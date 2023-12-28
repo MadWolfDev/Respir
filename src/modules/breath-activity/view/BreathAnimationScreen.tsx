@@ -58,7 +58,7 @@ export const BreathAnimationScreen = () => {
       {hasBlockedInPhase && (
         <TextAnimation
           variant={breathAnimationVariants.blockInTextAnimation}
-          content="Maintenez"
+          content="Rétention"
           zindex={0}
         />
       )}
@@ -66,18 +66,18 @@ export const BreathAnimationScreen = () => {
       {hasBlockedOutPhase && (
         <TextAnimation
           variant={breathAnimationVariants.blockOutTextAnimation}
-          content="Bloquez"
+          content="Pause"
         />
       )}
 
       <TextAnimation
         variant={breathAnimationVariants.breathInTextAnimation}
-        content="Inspirez"
+        content="Inspiration"
       />
 
       <TextAnimation
         variant={breathAnimationVariants.breathOutTextAnimation}
-        content="Expirez"
+        content="Expiration"
       />
 
       <ReturnButton handleClick={backToWelcomeScreen} />
